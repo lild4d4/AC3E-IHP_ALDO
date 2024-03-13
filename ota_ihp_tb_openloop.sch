@@ -112,19 +112,19 @@ value="
 .param vss  = 0.0
 .param vcm  = 0.9
 .param vac  = 60m
-.param w857 = 5u
-.param l857 = 0.5u
-.param wpar = 400u
-.param lpar = 0.5u
+.param w857 = 60u
+.param l857 = 0.6u
+.param wpar = 500u
+.param lpar = 0.6u
 .param mpar = 1
-.param w34  = 100u
+.param w34  = 130u
 .param l34  = 0.5u
 .param m34  = 1
-.param w6   = 300u
+.param w6   = 700u
 .param l6   = 0.5u
 .param m6   = 1
-.param w7   = w857*27.6
-.param w5   = 5u
+.param w7   = w857*16
+.param w5   = w857*5
 .options TEMP = 125.0
 
 * FFT Parameters
@@ -159,7 +159,9 @@ value="
 + @n.x1.xm6.nsg13_lv_nmos[vgs]
 + @n.x1.xm2.nsg13_lv_pmos[vds]
 + @n.x1.xm2.nsg13_lv_pmos[vgs]
++ @n.x1.xm1.nsg13_lv_pmos[gm]
 + @n.x1.xm1.nsg13_lv_pmos[vds]
++ @n.x1.xm3.nsg13_lv_pmos[gm]
 + @n.x1.xm3.nsg13_lv_pmos[vds]
 
 *Simulation
@@ -177,16 +179,31 @@ value="
   setplot tran1
   plot v(vsen) v(vout)
   op
-  print @n.x1.XM7.nsg13_lv_pmos[ids]
+  print @n.x1.xm8.nsg13_lv_pmos[vth]
   print @n.x1.xm8.nsg13_lv_pmos[vds]
+  print @n.x1.xm8.nsg13_lv_pmos[ids]
+
+  print @n.x1.XM7.nsg13_lv_pmos[vth]
+  print @n.x1.XM7.nsg13_lv_pmos[vds]
+  print @n.x1.XM7.nsg13_lv_pmos[ids]
+
   print @n.x1.xm6.nsg13_lv_nmos[gm]
+  print @n.x1.xm6.nsg13_lv_nmos[vth]
   print @n.x1.xm6.nsg13_lv_nmos[vds]
   print @n.x1.xm6.nsg13_lv_nmos[vgs]
-  print @n.x1.XM7.nsg13_lv_pmos[vds]
+  
+  print @n.x1.xm2.nsg13_lv_pmos[vth]
   print @n.x1.xm2.nsg13_lv_pmos[vds]
-  print @n.x1.xm2.nsg13_lv_pmos[vgs]
+  print @n.x1.xm2.nsg13_lv_pmos[ids]
+
   print @n.x1.xm1.nsg13_lv_pmos[vds]
+  print @n.x1.xm1.nsg13_lv_pmos[gm]
   print @n.x1.xm3.nsg13_lv_pmos[vds]
+  print @n.x1.xm3.nsg13_lv_pmos[gm] 
+
+  let idr = @n.x1.xm9.nsg13_lv_nmos[ids] 
+  let vdsr = @n.x1.xm9.nsg13_lv_nmos[vds] 
+  print vdsr/idr
   print I(v.x1.vmeas)
   
 

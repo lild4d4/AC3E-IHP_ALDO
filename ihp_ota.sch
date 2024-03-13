@@ -167,7 +167,7 @@ spiceprefix=X
 }
 C {devices/capa.sym} 450 -50 1 0 {name=C1
 m=1
-value=1p
+value=3.5p
 footprint=1206
 device="ceramic capacitor"}
 C {sg13g2_pr/sg13_lv_pmos.sym} -200 -140 0 1 {name=M8
@@ -188,7 +188,7 @@ C {devices/lab_pin.sym} -30 -140 1 0 {name=p7 sig_type=std_logic lab=iref}
 C {devices/lab_pin.sym} 400 -160 0 0 {name=p8 sig_type=std_logic lab=iref}
 C {sg13g2_pr/sg13_lv_nmos.sym} 380 -70 3 1 {name=M9
 L=0.45u
-W=1.0u
+W=3u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -221,3 +221,8 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {devices/ammeter.sym} 500 -90 0 0 {name=Vmeas savecurrent=true}
+C {devices/ngspice_get_value.sym} 210 -70 0 0 {name=r16 node=@n.x1.xm3.nsg13_lv_pmos[gm]
+descr="gm= "}
+C {devices/launcher.sym} -220 90 0 0 {name=h1
+descr=Annotate 
+tclcommand="ngspice::annotate"}

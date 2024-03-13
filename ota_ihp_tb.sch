@@ -110,19 +110,19 @@ value="
 .param vss  = 0.0
 .param vcm  = 0.9
 .param vac  = 60m
-.param w857 = 40u
+.param w857 = 20u
 .param l857 = 1u
-.param wpar = 10u
-.param lpar = 0.35u
+.param wpar = 150u
+.param lpar = 0.5u
 .param mpar = 1
-.param w34  = 1u
+.param w34  = 40u
 .param l34  = 0.35u
 .param m34  = 1
 .param w6   = 500u
 .param l6   = 0.5u
 .param m6   = 1
 .param w7   = w857*27.6
-.param w5   = 0.7u
+.param w5   = 20u
 .options TEMP = 125.0
 
 * FFT Parameters
