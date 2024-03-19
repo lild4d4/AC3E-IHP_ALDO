@@ -8,7 +8,7 @@ E {}
 N -110 -140 -110 -30 {
 lab=#net1}
 N 120 -70 120 -30 {
-lab=#net2}
+lab=vout}
 N -40 -190 80 -190 {
 lab=#net1}
 N -40 -190 -40 -140 {
@@ -20,23 +20,19 @@ lab=#net1}
 N -110 -160 -110 -140 {
 lab=#net1}
 N -110 30 -110 70 {
-lab=#net3}
-N 70 70 120 70 {
-lab=#net3}
+lab=#net2}
 N 120 30 120 70 {
-lab=#net3}
+lab=#net2}
 N -110 -270 -110 -220 {
 lab=vdd}
 N 120 -270 120 -220 {
 lab=vdd}
 N 10 70 10 100 {
-lab=#net3}
+lab=#net2}
 N -110 70 10 70 {
-lab=#net3}
+lab=#net2}
 N 10 160 10 200 {
 lab=vss}
-N 320 130 370 130 {
-lab=iref}
 N -400 160 -400 200 {
 lab=vss}
 N -400 60 -400 100 {
@@ -49,21 +45,11 @@ N -330 60 -330 130 {
 lab=iref}
 N -360 130 -330 130 {
 lab=iref}
-N 410 160 410 200 {
-lab=vss}
 N 10 130 70 130 {
 lab=vss}
-N 70 -0 120 0 {
-lab=#net3}
 N 70 130 70 200 {
 lab=vss}
 N 10 200 70 200 {
-lab=vss}
-N 410 130 440 130 {
-lab=vss}
-N 440 130 440 200 {
-lab=vss}
-N 410 200 440 200 {
 lab=vss}
 N 10 -270 120 -270 {
 lab=vdd}
@@ -93,50 +79,24 @@ N -180 0 -150 0 {
 lab=vin_n}
 N 160 -0 200 -0 {
 lab=vin_p}
-N 70 200 410 200 {
-lab=vss}
 N 10 200 10 230 {
 lab=vss}
 N 10 -290 10 -270 {
 lab=vdd}
 N -110 -270 10 -270 {
 lab=vdd}
-N 410 -70 490 -70 {
+N 120 -70 490 -70 {
 lab=vout}
-N 410 -70 410 100 {
-lab=vout}
-N 230 -160 370 -160 {
-lab=#net2}
-N 230 -160 230 -70 {
-lab=#net2}
-N 230 -70 250 -70 {
-lab=#net2}
-N 310 -70 330 -70 {
-lab=#net4}
-N 390 -70 410 -70 {
-lab=vout}
-N 410 -130 410 -70 {
-lab=vout}
-N 410 -270 410 -190 {
-lab=vdd}
-N 140 -270 410 -270 {
-lab=vdd}
-N 410 -160 430 -160 {
-lab=vdd}
-N 430 -270 430 -160 {
-lab=vdd}
-N 410 -270 430 -270 {
-lab=vdd}
-N 120 -70 230 -70 {
-lab=#net2}
 N 120 -160 120 -70 {
+lab=vout}
+N 70 0 120 0 {
+lab=vss}
+N 10 70 120 70 {
 lab=#net2}
-N 70 -0 70 70 {
-lab=#net3}
-N -110 -0 70 -0 {
-lab=#net3}
-N 10 70 70 70 {
-lab=#net3}
+N 70 0 70 130 {
+lab=vss}
+N -110 -0 70 0 {
+lab=vss}
 C {sg13g2_pr/sg13_lv_nmos.sym} -130 0 2 1 {name=M1
 L=\{lpar\}
 W=\{wpar\}
@@ -177,22 +137,6 @@ m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_pmos.sym} 390 -160 0 0 {name=M6
-L=\{l6\}
-W=\{w6\}
-ng=1
-m=\{m6\}
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 390 130 2 1 {name=M7
-L=\{l857\}
-W=\{w7\}
-ng=1
-m=1
-model=sg13_lv_nmos
-spiceprefix=X
-}
 C {sg13g2_pr/sg13_lv_nmos.sym} -380 130 2 0 {name=M8
 L=\{l857\}
 W=\{w857\}
@@ -210,15 +154,4 @@ C {devices/ipin.sym} 200 0 2 0 {name=p3 lab=vin_p
 C {devices/iopin.sym} 10 -290 3 0 {name=p4 lab=vdd}
 C {devices/iopin.sym} 10 230 1 0 {name=p5 lab=vss}
 C {devices/opin.sym} 490 -70 0 0 {name=p6 lab=vout}
-C {devices/capa.sym} 360 -70 1 0 {name=C1
-m=1
-value=3.5p
-footprint=1206
-device="ceramic capacitor"}
-C {devices/res.sym} 280 -70 1 0 {name=R1
-value=450
-footprint=1206
-device=resistor
-m=1}
 C {devices/lab_pin.sym} -200 130 0 0 {name=p7 sig_type=std_logic lab=iref}
-C {devices/lab_pin.sym} 320 130 0 0 {name=p8 sig_type=std_logic lab=iref}

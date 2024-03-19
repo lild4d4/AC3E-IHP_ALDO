@@ -46,15 +46,16 @@ save all
 save @n.xm1.nsg13_lv_nmos[gm]
 save @n.xm1.nsg13_lv_nmos[ids]
 
-dc Vgs 1.5 0 -0.1
+dc Vgs 1.8 0 -0.1
 
 let gm = @n.xm1.nsg13_lv_nmos[gm]
 let id = @n.xm1.nsg13_lv_nmos[ids]
 
 let a = gm/id
 setscale a
+let w = 1e-6
 
-plot id
+plot id/w
 plot I(Vm1) id
 *write mos_temp.raw
 *wrdata mos_temp.csv I(Vm1) I(Vm2) I(Vm3) I(Vm4)
@@ -64,7 +65,7 @@ plot I(Vm1) id
 C {devices/gnd.sym} 330 -150 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 70 -150 0 0 {name=l2 lab=GND}
 C {devices/vsource.sym} 70 -200 0 0 {name=Vgs value=0.75}
-C {devices/vsource.sym} 70 -380 0 0 {name=Vds value=1.5}
+C {devices/vsource.sym} 70 -380 0 0 {name=Vds value=0.9}
 C {devices/gnd.sym} 70 -290 0 0 {name=l3 lab=GND}
 C {devices/gnd.sym} 380 -150 0 0 {name=l4 lab=GND}
 C {sg13g2_pr/sg13_lv_nmos.sym} 310 -240 2 1 {name=M1

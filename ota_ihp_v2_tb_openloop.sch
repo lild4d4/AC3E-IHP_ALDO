@@ -19,10 +19,6 @@ N 430 -60 480 -60 {
 lab=vout}
 N 480 -170 480 -60 {
 lab=vout}
-N 190 -80 190 -40 {
-lab=vin}
-N 190 -80 290 -80 {
-lab=vin}
 N -260 40 -260 70 {
 lab=GND}
 N -160 40 -160 70 {
@@ -32,8 +28,6 @@ lab=vcm}
 N 250 100 250 130 {
 lab=vss}
 N 330 100 330 130 {
-lab=vss}
-N 190 20 190 50 {
 lab=vss}
 N -70 -80 -55 -80 {
 lab=vcm}
@@ -57,23 +51,17 @@ N 40 -170 40 -80 {
 lab=#net2}
 N 10 -80 40 -80 {
 lab=#net2}
-N 140 -80 190 -80 {
-lab=vin}
 N 40 -80 90 -80 {
 lab=#net2}
+N 140 -80 290 -80 {
+lab=vin}
 C {devices/vsource.sym} 250 70 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
 C {devices/vsource.sym} -20 150 0 0 {name=V2 value="sin(0 \{vac\} 1Meg) dc 0 ac 1" savecurrent=false}
 C {devices/vsource.sym} -160 10 0 0 {name=V4 value=DC\{vdd\} savecurrent=false}
 C {devices/vsource.sym} -260 10 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
 C {devices/isource.sym} 330 70 2 0 {name=I0 value=DC\{iref\}}
-C {devices/capa.sym} 190 -10 0 0 {name=C1
-m=1
-value=3p
-footprint=1206
-device="ceramic capacitor"}
 C {devices/lab_pin.sym} -20 210 0 0 {name=p1 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} 250 130 0 0 {name=p2 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 190 50 0 0 {name=p3 sig_type=std_logic lab=vss}
 C {devices/gnd.sym} -260 70 0 0 {name=l1 lab=GND}
 C {devices/res.sym} -25 -80 1 0 {name=R1
 value=500
@@ -97,7 +85,7 @@ C {devices/lab_pin.sym} 270 -40 0 0 {name=p8 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} 370 0 2 0 {name=p9 sig_type=std_logic lab=vss}
 C {devices/capa.sym} 480 20 0 0 {name=C3
 m=1
-value=20p
+value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 480 75 0 0 {name=p10 sig_type=std_logic lab=vss}
@@ -132,24 +120,23 @@ value="
 .param vcm  = 0.9
 .param vac  = 60m
 
-.param w857 = 2u
-.param l857 = 0.4u
+.param w857 = 5u
+.param l857 = 1u
 
-.param wpar = 300u
-.param lpar = 0.4u
+.param wpar = 40u
+.param lpar = 0.3u
 .param mpar = 1
 
-.param w34  = 100u
-.param l34  = 0.4u
+.param w34  = 50u
+.param l34  = 1u
 .param m34  = 1
 
-.param w6   = 750u
-.param l6   = 0.35u
+.param w6   = 600u
+.param l6   = 0.3u
 .param m6   = 1
 
-.param w7   = w857*9
-.param w5   = w857*2
-.options TEMP = 125.0
+.param w7   = w857*18
+.param w5   = w857*4
 
 * Include Models
 *.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
@@ -161,7 +148,7 @@ value="
 .control
   set color0 = white
   
-  ac dec 100 1 10G
+  ac dec 100 1000 10G
   setplot ac1
   meas ac GBW when vdb(vout)=0
   meas ac DCG find vdb(vout) at=1]]
@@ -185,6 +172,7 @@ print @n.x1.XM7.nsg13_lv_nmos[ids]
 print @n.x1.xm6.nsg13_lv_pmos[vgs]-@n.x1.xm6.nsg13_lv_pmos[vth]
 print @n.x1.xm6.nsg13_lv_pmos[vds]
 print @n.x1.xm6.nsg13_lv_pmos[gm]
+print @n.x1.xm6.nsg13_lv_pmos[gm]/@n.x1.xm6.nsg13_lv_pmos[ids]
   
 print @n.x1.xm5.nsg13_lv_nmos[vgs]-@n.x1.xm5.nsg13_lv_nmos[vth]
 print @n.x1.xm5.nsg13_lv_nmos[vds]
@@ -193,6 +181,7 @@ print @n.x1.xm5.nsg13_lv_nmos[ids]
 print @n.x1.xm1.nsg13_lv_nmos[vgs]-@n.x1.xm1.nsg13_lv_nmos[vth]
 print @n.x1.xm1.nsg13_lv_nmos[vds]
 print @n.x1.xm1.nsg13_lv_nmos[gm]
+print @n.x1.xm1.nsg13_lv_nmos[gm]/@n.x1.xm1.nsg13_lv_nmos[ids]
 
 print @n.x1.xm2.nsg13_lv_nmos[vgs]-@n.x1.xm2.nsg13_lv_nmos[vth]
 print @n.x1.xm2.nsg13_lv_nmos[vds]

@@ -1,107 +1,76 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.0.0 file_version=1.2 }
 G {}
 K {}
 V {}
 S {}
 E {}
-N 250 40 290 40 {
-lab=vcm}
-N 250 40 250 120 {
-lab=vcm}
-N 330 80 330 120 {
-lab=#net1}
-N 370 60 370 80 {
-lab=vss}
-N 350 -50 350 -30 {
+N 600 -170 600 -130 { lab=GND}
+N 600 -270 600 -230 { lab=vss}
+N 700 -270 700 -230 { lab=vdd}
+N 700 -170 700 -130 { lab=vss}
+N 800 -360 800 -330 { lab=vin_signal}
+N 1210 -190 1210 -150 { lab=vss}
+N 1210 -280 1210 -250 { lab=#net1}
+N 800 -270 800 -230 { lab=vsen}
+N 800 -170 800 -130 { lab=vcm}
+N 990 -550 1050 -550 { lab=vin}
+N 980 -550 980 -360 { lab=vin}
+N 980 -550 990 -550 { lab=vin}
+N 800 -360 860 -360 { lab=vin_signal}
+N 1030 -360 1090 -360 { lab=vin}
+N 1260 -550 1310 -550 { lab=vout}
+N 1030 -250 1030 -210 { lab=vss}
+N 1030 -360 1030 -310 { lab=vin}
+N 1390 -340 1390 -310 { lab=vout}
+N 1310 -340 1390 -340 { lab=vout}
+N 1390 -250 1390 -200 { lab=vss}
+N 1110 -290 1110 -250 { lab=vcm}
+N 1110 -190 1110 -150 { lab=vss}
+N 1110 -320 1110 -290 { lab=vcm}
+N 1110 -320 1170 -320 { lab=vcm}
+N 1090 -360 1170 -360 { lab=vin}
+N 920 -360 1030 -360 { lab=vin}
+N 1310 -550 1390 -550 { lab=vout}
+N 1390 -550 1390 -340 { lab=vout}
+N 1050 -550 1200 -550 { lab=vin}
+N 1230 -440 1230 -390 {
 lab=vdd}
-N 430 20 480 20 {
-lab=vout}
-N 480 -90 480 20 {
-lab=vout}
-N 190 0 190 40 {
-lab=vin}
-N 190 0 290 0 {
-lab=vin}
-N -260 120 -260 150 {
-lab=GND}
-N -160 120 -160 150 {
+N 1250 -300 1250 -250 {
 lab=vss}
-N -20 260 -20 290 {
-lab=vcm}
-N 250 180 250 210 {
-lab=vss}
-N 330 180 330 210 {
-lab=vss}
-N 190 100 190 130 {
-lab=vss}
-N -70 0 -55 0 {
-lab=vcm}
-N -20 110 -20 120 {
-lab=vin}
-N -20 180 -20 200 {
-lab=vsen}
-N 360 -90 480 -90 {
-lab=vout}
-N -160 20 -160 60 {
-lab=vdd}
-N -260 20 -260 60 {
-lab=vss}
-N 480 130 480 155 {
-lab=vss}
-N 480 20 480 70 {
-lab=vout}
-N 40 -90 300 -90 {
-lab=#net2}
-N 40 -90 40 -0 {
-lab=#net2}
-N 10 -0 40 -0 {
-lab=#net2}
-N 140 -0 190 -0 {
-lab=vin}
-N 40 0 90 -0 {
-lab=#net2}
-C {devices/vsource.sym} 250 150 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
-C {devices/vsource.sym} -20 230 0 0 {name=V2 value="sin(0 \{vac\} \{vac_fin\}) dc 0 ac 1" savecurrent=false}
-C {devices/vsource.sym} -160 90 0 0 {name=V4 value=DC\{vdd\} savecurrent=false}
-C {devices/vsource.sym} -260 90 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
-C {devices/isource.sym} 330 150 0 0 {name=I0 value=DC\{iref\}}
-C {devices/capa.sym} 190 70 0 0 {name=C1
-m=1
-value=3p
-footprint=1206
-device="ceramic capacitor"}
-C {devices/lab_pin.sym} -20 290 0 0 {name=p1 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 250 210 0 0 {name=p2 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 190 130 0 0 {name=p3 sig_type=std_logic lab=vss}
-C {devices/gnd.sym} -260 150 0 0 {name=l1 lab=GND}
-C {devices/res.sym} -25 0 1 0 {name=R1
-value=500
-footprint=1206
-device=resistor
-m=1}
-C {devices/capa.sym} -20 150 0 0 {name=C2
+C {vsource.sym} 600 -200 0 0 {name=V1 value=DC\{vss\}}
+C {vsource.sym} 700 -200 0 0 {name=V2 value=DC\{vdd\}}
+C {gnd.sym} 600 -130 0 0 {name=l14 lab=GND}
+C {vsource.sym} 800 -200 0 0 {name=V4 value="sin(0 \{vac\} \{vac_fin\}) dc 0 ac 1"}
+C {capa.sym} 800 -300 2 0 {name=C4
 m=1
 value=1
 footprint=1206
 device="ceramic capacitor"}
-C {devices/res.sym} 330 -90 1 0 {name=R2
+C {lab_pin.sym} 700 -270 1 0 {name=l15 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 600 -270 1 0 {name=l16 sig_type=std_logic lab=vss}
+C {lab_pin.sym} 700 -130 3 0 {name=l18 sig_type=std_logic lab=vss}
+C {lab_pin.sym} 800 -130 3 0 {name=l20 sig_type=std_logic lab=vcm}
+C {isource.sym} 1210 -220 0 0 {name=I0 value=DC\{iref\}}
+C {lab_pin.sym} 1210 -150 3 0 {name=l22 sig_type=std_logic lab=vss}
+C {lab_wire.sym} 800 -250 3 0 {name=l24 sig_type=std_logic lab=vsen}
+C {res.sym} 890 -360 1 0 {name=R1
+value=500
+footprint=1206
+device=resistor
+m=1}
+C {res.sym} 1230 -550 1 0 {name=R3
 value=5k
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_pin.sym} -260 20 0 0 {name=p5 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -160 20 0 0 {name=p6 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 350 -50 0 0 {name=p7 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 270 40 0 0 {name=p8 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 370 80 2 0 {name=p9 sig_type=std_logic lab=vss}
-C {devices/capa.sym} 480 100 0 0 {name=C3
+C {lab_pin.sym} 1030 -210 3 0 {name=l28 sig_type=std_logic lab=vss
+}
+C {capa.sym} 1030 -280 0 0 {name=C5
 m=1
-value=1p
+value=3p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} 480 155 0 0 {name=p10 sig_type=std_logic lab=vss}
-C {devices/code.sym} -280 -230 0 0 {name=SIMULATION only_toplevel=false 
+C {netlist_not_shown.sym} 650 -530 0 0 {name=SIMULATION only_toplevel=false 
 
 value="
 
@@ -110,21 +79,19 @@ value="
 .param iref = 100u
 .param vdd  = 1.8
 .param vss  = 0.0
-.param vcm  = 0.9
+.param vcm  = 0.8
 .param vac  = 60m
-.param w857 = 60u
-.param l857 = 0.6u
-.param wpar = 500u
-.param lpar = 0.6u
+.param w857 = 1
+.param l857 = 0.15
+.param wpar = 1
+.param lpar = 0.35
 .param mpar = 1
-.param w34  = 130u
-.param l34  = 0.5u
+.param w34  = 1
+.param l34  = 0.15
 .param m34  = 1
-.param w6   = 700u
-.param l6   = 0.5u
+.param w6   = 1
+.param l6   = 0.15
 .param m6   = 1
-.param w7   = w857*16
-.param w5   = w857*5
 .options TEMP = 125.0
 
 * FFT Parameters
@@ -138,7 +105,7 @@ value="
 .csparam vac_fin  = \{vac_fin\}
 
 * Include Models
-*.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
+.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
 
 * OP Parameters & Singals to save
 .save all
@@ -151,18 +118,6 @@ value="
 + @M.X1.XM7.msky130_fd_pr__pfet_01v8[id] @M.X1.XM7.msky130_fd_pr__pfet_01v8[vth] @M.X1.XM7.msky130_fd_pr__pfet_01v8[vgs] @M.X1.XM7.msky130_fd_pr__pfet_01v8[vds] @M.X1.XM7.msky130_fd_pr__pfet_01v8[vdsat] @M.X1.XM7.msky130_fd_pr__pfet_01v8[gm] @M.X1.XM7.msky130_fd_pr__pfet_01v8[gds] @M.X1.XM7.msky130_fd_pr__pfet_01v8[cgg]
 + @M.X1.XM8.msky130_fd_pr__pfet_01v8[id] @M.X1.XM8.msky130_fd_pr__pfet_01v8[vth] @M.X1.XM8.msky130_fd_pr__pfet_01v8[vgs] @M.X1.XM8.msky130_fd_pr__pfet_01v8[vds] @M.X1.XM8.msky130_fd_pr__pfet_01v8[vdsat] @M.X1.XM8.msky130_fd_pr__pfet_01v8[gm] @M.X1.XM8.msky130_fd_pr__pfet_01v8[gds] @M.X1.XM8.msky130_fd_pr__pfet_01v8[cgg]
 + @M.X1.XM9.msky130_fd_pr__nfet_01v8[id] @M.X1.XM9.msky130_fd_pr__nfet_01v8[vth] @M.X1.XM9.msky130_fd_pr__nfet_01v8[vgs] @M.X1.XM9.msky130_fd_pr__nfet_01v8[vds] @M.X1.XM9.msky130_fd_pr__nfet_01v8[vdsat] @M.X1.XM9.msky130_fd_pr__nfet_01v8[gm] @M.X1.XM9.msky130_fd_pr__nfet_01v8[gds] @M.X1.XM9.msky130_fd_pr__nfet_01v8[cgg]
-+ @n.x1.XM7.nsg13_lv_pmos[ids]
-+ @n.x1.XM7.nsg13_lv_pmos[vds]
-+ @n.x1.xm8.nsg13_lv_pmos[vds]
-+ @n.x1.xm6.nsg13_lv_nmos[gm]
-+ @n.x1.xm6.nsg13_lv_nmos[vds]
-+ @n.x1.xm6.nsg13_lv_nmos[vgs]
-+ @n.x1.xm2.nsg13_lv_pmos[vds]
-+ @n.x1.xm2.nsg13_lv_pmos[vgs]
-+ @n.x1.xm1.nsg13_lv_pmos[gm]
-+ @n.x1.xm1.nsg13_lv_pmos[vds]
-+ @n.x1.xm3.nsg13_lv_pmos[gm]
-+ @n.x1.xm3.nsg13_lv_pmos[vds]
 
 *Simulation
 .control
@@ -178,34 +133,6 @@ value="
   tran 0.01u 11u
   setplot tran1
   plot v(vsen) v(vout)
-  op
-  print @n.x1.xm8.nsg13_lv_pmos[vth]
-  print @n.x1.xm8.nsg13_lv_pmos[vds]
-  print @n.x1.xm8.nsg13_lv_pmos[ids]
-
-  print @n.x1.XM7.nsg13_lv_pmos[vth]
-  print @n.x1.XM7.nsg13_lv_pmos[vds]
-  print @n.x1.XM7.nsg13_lv_pmos[ids]
-
-  print @n.x1.xm6.nsg13_lv_nmos[gm]
-  print @n.x1.xm6.nsg13_lv_nmos[vth]
-  print @n.x1.xm6.nsg13_lv_nmos[vds]
-  print @n.x1.xm6.nsg13_lv_nmos[vgs]
-  
-  print @n.x1.xm2.nsg13_lv_pmos[vth]
-  print @n.x1.xm2.nsg13_lv_pmos[vds]
-  print @n.x1.xm2.nsg13_lv_pmos[ids]
-
-  print @n.x1.xm1.nsg13_lv_pmos[vds]
-  print @n.x1.xm1.nsg13_lv_pmos[gm]
-  print @n.x1.xm3.nsg13_lv_pmos[vds]
-  print @n.x1.xm3.nsg13_lv_pmos[gm] 
-
-  let idr = @n.x1.xm9.nsg13_lv_nmos[ids] 
-  let vdsr = @n.x1.xm9.nsg13_lv_nmos[vds] 
-  print vdsr/idr
-  print I(v.x1.vmeas)
-  
 
   *reset    
   *set sqrnoise                          
@@ -266,22 +193,24 @@ value="
 
 .end
 "}
-C {devices/code_shown.sym} -390 -380 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value="
-.lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
-*.lib $::SG13G2_MODELS/cornerMOShv.lib mos_tt
-"}
-C {devices/lab_pin.sym} -20 190 0 0 {name=p11 sig_type=std_logic lab=vsen}
-C {devices/lab_pin.sym} 260 0 0 0 {name=p13 sig_type=std_logic lab=vin}
-C {devices/lab_pin.sym} 330 210 0 0 {name=p14 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 480 20 2 0 {name=p15 sig_type=std_logic lab=vout}
-C {/foss/designs/ihp_design/ihp_ota.sym} 350 20 0 0 {name=x1}
-C {devices/lab_pin.sym} -160 150 0 0 {name=p4 sig_type=std_logic lab=vss}
-C {devices/res.sym} 115 0 1 0 {name=R3
-value=1G
+C {capa.sym} 1390 -280 0 0 {name=C1
+m=1
+value=20p
 footprint=1206
-device=resistor
-m=1}
-C {devices/lab_pin.sym} -70 0 0 0 {name=p12 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} -20 110 0 0 {name=p16 sig_type=std_logic lab=vin}
+device="ceramic capacitor"}
+C {lab_pin.sym} 1390 -200 3 0 {name=l2 sig_type=std_logic lab=vss}
+C {lab_wire.sym} 1360 -340 0 0 {name=l3 sig_type=std_logic lab=vout}
+C {lab_pin.sym} 1110 -150 3 0 {name=l5 sig_type=std_logic lab=vss}
+C {lab_wire.sym} 1150 -320 0 0 {name=l4 sig_type=std_logic lab=vcm}
+C {vsource.sym} 1110 -220 0 0 {name=V5 value=DC\{vcm\}}
+C {lab_wire.sym} 1110 -360 0 0 {name=l6 sig_type=std_logic lab=vin}
+C {lab_wire.sym} 840 -360 0 0 {name=l7 sig_type=std_logic lab=vin_signal}
+C {opamp.sym} 1230 -340 0 0 {name=x1}
+C {lab_pin.sym} 1230 -430 2 0 {name=l1 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 1250 -270 2 0 {name=l8 sig_type=std_logic lab=vss}
+C {ngspice_probe.sym} 980 -420 0 0 {name=r5}
+C {ngspice_probe.sym} 1130 -360 0 0 {name=r1}
+C {ngspice_probe.sym} 1160 -320 2 0 {name=r2}
+C {ngspice_probe.sym} 1210 -270 2 0 {name=r3}
+C {ngspice_probe.sym} 1390 -350 0 0 {name=r4}
+C {ngspice_probe.sym} 800 -350 2 0 {name=r6}
