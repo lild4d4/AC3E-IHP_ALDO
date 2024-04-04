@@ -6,18 +6,10 @@ V {}
 S {}
 E {}
 T {Off-Chip resistanace} 610 40 3 0 0.4 0.4 {}
-N 180 20 180 60 {
-lab=iref}
 N 350 120 350 150 {
 lab=GND}
-N 250 120 250 150 {
-lab=vss}
-N 180 120 180 150 {
-lab=vss}
 N 350 20 350 60 {
 lab=vss}
-N 250 20 250 60 {
-lab=vcm}
 N 600 -190 690 -190 {
 lab=vout}
 N 690 -190 690 -160 {
@@ -44,10 +36,7 @@ N 690 -190 780 -190 {
 lab=vout}
 N 780 -60 780 20 {
 lab=vss}
-C {devices/vsource.sym} 250 90 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
 C {devices/vsource.sym} 350 90 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
-C {devices/isource.sym} 180 90 2 0 {name=I0 value=DC\{iref\}}
-C {devices/lab_pin.sym} 250 150 0 0 {name=p2 sig_type=std_logic lab=vss}
 C {devices/gnd.sym} 350 150 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 350 20 0 0 {name=p5 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 380 -100 3 0 {name=p9 sig_type=std_logic lab=vss}
@@ -64,20 +53,20 @@ value="
 .endif
 "}
 C {devices/lab_pin.sym} 150 -170 0 0 {name=p13 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 180 150 0 0 {name=p14 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 780 -190 2 0 {name=p15 sig_type=std_logic lab=vout}
 C {devices/code.sym} -600 -260 0 0 {name=Simulation_parameters only_toplevel=true
 
 value="
 
 Vs vdd 0 1.8 AC 1
+Vref vcm 0 0.9
+Iin iref 0 5e-6
+
 .param temp=27
 .save all
 
 "}
-C {devices/lab_pin.sym} 180 20 0 0 {name=p12 sig_type=std_logic lab=iref}
 C {devices/lab_pin.sym} 150 -190 0 0 {name=p17 sig_type=std_logic lab=iref}
-C {devices/lab_pin.sym} 250 20 0 0 {name=p18 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} 150 -210 0 0 {name=p19 sig_type=std_logic lab=vdd}
 C {devices/ammeter.sym} 570 -190 3 0 {name=Vmeas savecurrent=true}
 C {devices/ammeter.sym} 200 -210 3 0 {name=Vmeas1 savecurrent=true}
@@ -95,10 +84,8 @@ C {devices/code.sym} -200 -260 0 0 {name=OTA_parameters only_toplevel=false
 
 value="
 
-.param iref = 5u
 .param vdd  = 1.8
 .param vss  = 0.0
-.param vcm  = 0.9
 .param vac  = 60m
 
 .param w857 = 6u
@@ -150,16 +137,21 @@ pre_osdi /home/ac3e/Documents/psp103_nqs.osdi
 
 define gauss ( nom , var , sig ) ( nom + nom * var / sig * sgauss (0))
 
-let mc_runs = 100
+let mc_runs = 10
 let run = 0
 set curplot=new
 set scratch=$curplot
 setplot $scratch
 let vout=unitvec(mc_runs)
+let vdd=unitvec(mc_runs)
+let vcm=unitvec(mc_runs)
+let iref=unitvec(mc_runs)
 
 ***************** LOOP *********************
 dowhile run < mc_runs
 alter vs = gauss (1.8 , 0.2 , 3)
+alter vref = gauss (0.9 , 0.01 , 3)
+alter iin = gauss (5e-6 , 0.1e-6 , 3)
 *dc Vds 0 3 0.01
 op
 set run=$&run
@@ -167,6 +159,9 @@ set dt=$curplot
 setplot $scratch
 let out\{$run\}=\{$dt\}.v(vout)
 let Vout[run]=\{$dt\}.v(vout)
+let Vdd[run]=\{$dt\}.v(vdd)
+let Vcm[run]=\{$dt\}.v(vcm)
+let Iref[run]=\{$dt\}.i(Iref)
 setplot $dt
 reset
 let run=run+1 
@@ -175,10 +170,10 @@ end
 
 plot \{$scratch\}.all 
 
-wrdata /home/ac3e/Documents/ihp_design/v3/mc_ldo_closeloop.csv \{$scratch\}.vout
+wrdata /home/ac3e/Documents/ihp_design/v3/mc_ldo_closeloop.csv \{$scratch\}.vout \{$scratch\}.vdd \{$scratch\}.vcm \{$scratch\}.iref
 write /home/ac3e/Documents/ihp_design/v3/mc_ldo_closeloop.raw
 echo
-print \{$scratch\}.vout
+print \{$scratch\}.vout \{$scratch\}.vdd \{$scratch\}.vcm \{$scratch\}.iref
 
 .endc
 "}

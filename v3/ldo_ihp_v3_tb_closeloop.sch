@@ -3,128 +3,225 @@ v {xschem version=3.4.5 file_version=1.2
 G {}
 K {}
 V {}
-S {}
+S {
+}
 E {}
-N 160 260 160 300 {
+B 2 690 -440 1490 -40 {flags=graph,unlocked
+y1=0.9
+y2=1.8
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=1e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="vout
+pos
+vcm
+vdd"
+color="7 8 12 4"
+dataset=0
+unitx=1
+logx=0
+logy=0
+sim_type=tran
+rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_tran.raw}
+B 2 690 -40 1490 360 {flags=graph,unlocked
+y1=-2
+y2=2.1
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+
+x2=2.31
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="vdd
+vcm
+pos
+vout"
+color="12 8 10 7"
+
+unitx=1
+logx=0
+logy=0
+sim_type=dc
+rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_dc.raw
+
+dataset=0
+rainbow=0
+x1=0.21}
+B 2 1610 -440 2410 -40 {flags=graph,unlocked
+
+
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+
+x2=10
+divx=5
+subdivx=8
+xlabmag=1.0
+ylabmag=1.0
+node="\\"vout db20()\\""
+color=4
+
+unitx=1
+logx=1
+logy=0
+sim_type=ac
+rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_ac.raw
+dataset=-1
+
+y1=-73
+y2=-4.4
+x1=0}
+B 2 1610 -40 2410 360 {flags=graph,unlocked
+y1=-0.00036
+y2=0.011
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=1.5e-05
+x2=0.000115
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="\\"i(Vmeas)\\"
+\\"v(vout) 1.2 -\\""
+color="4 7"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+sim_type=tran
+rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_load.raw}
+B 2 1605 360 2405 760 {flags=graph,unlocked
+y1=1.2
+y2=1.8
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.0001
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node="vdd
+vout"
+color="4 7"
+dataset=-1
+unitx=1
+logx=0
+logy=0
+sim_type=tran
+rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_settime.raw
+digital=0
+rainbow=0}
+T {Off-Chip resistanace} 340 240 3 0 0.4 0.4 {}
+N -90 220 -90 260 {
 lab=iref}
-N 270 -30 270 -10 {
-lab=vss}
-N 410 360 410 390 {
+N 80 320 80 350 {
 lab=GND}
-N 230 360 230 390 {
+N -20 320 -20 350 {
 lab=vss}
-N 160 360 160 390 {
+N -90 320 -90 350 {
 lab=vss}
-N 410 260 410 300 {
+N 80 220 80 260 {
 lab=vss}
-N 520 130 520 140 {
-lab=pos}
-N 520 120 520 130 {
-lab=pos}
-N 120 -50 120 130 {
-lab=pos}
-N 120 -50 190 -50 {
-lab=pos}
-N 120 -90 190 -90 {
+N -20 220 -20 260 {
 lab=vcm}
-N 520 10 520 60 {
+N 330 10 420 10 {
+lab=vout}
+N 420 10 420 40 {
+lab=vout}
+N 420 100 420 140 {
 lab=#net1}
-N 120 130 520 130 {
-lab=pos}
-N 520 -40 520 10 {
-lab=#net1}
-N 520 -190 520 -100 {
-lab=vdd}
-N 250 -190 520 -190 {
-lab=vdd}
-N 520 -70 540 -70 {
-lab=vdd}
-N 540 -190 540 -70 {
-lab=vdd}
-N 520 -190 540 -190 {
-lab=vdd}
-N 230 -10 230 10 {
-lab=iref}
-N 230 260 230 300 {
-lab=vcm}
-N 520 200 520 220 {
+N 420 200 420 220 {
 lab=vss}
-N 520 10 590 10 {
-lab=#net1}
-N 250 -130 250 -120 {
+N -40 -10 -20 -10 {
 lab=#net2}
-N 330 -70 480 -70 {
-lab=#net3}
-N 650 10 740 10 {
-lab=vout}
-N 740 10 740 40 {
-lab=vout}
-N 740 100 740 140 {
-lab=#net4}
-N 740 200 740 220 {
+N -120 -10 -100 -10 {
+lab=vdd}
+N -120 10 -20 10 {
+lab=iref}
+N -120 30 -20 30 {
+lab=vcm}
+N 110 70 110 100 {
 lab=vss}
-C {devices/vsource.sym} 230 330 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
-C {devices/vsource.sym} 410 330 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
-C {devices/isource.sym} 160 330 2 0 {name=I0 value=DC\{iref\}}
-C {devices/lab_pin.sym} 230 390 0 0 {name=p2 sig_type=std_logic lab=vss}
-C {devices/gnd.sym} 410 390 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} 410 260 0 0 {name=p5 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 270 -10 2 0 {name=p9 sig_type=std_logic lab=vss}
-C {devices/code_shown.sym} -850 440 0 0 {name=MODEL only_toplevel=true
+N 230 10 270 10 {
+lab=#net3}
+N 510 10 510 80 {
+lab=vout}
+N 420 10 510 10 {
+lab=vout}
+N 510 140 510 220 {
+lab=vss}
+C {devices/vsource.sym} -20 290 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
+C {devices/vsource.sym} 80 290 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
+C {devices/isource.sym} -90 290 2 0 {name=I0 value=DC\{iref\}}
+C {devices/lab_pin.sym} -20 350 0 0 {name=p2 sig_type=std_logic lab=vss}
+C {devices/gnd.sym} 80 350 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} 80 220 0 0 {name=p5 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 110 100 3 0 {name=p9 sig_type=std_logic lab=vss}
+C {devices/code_shown.sym} -1330 30 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
+
+.param corner=0
+
+.if (corner==0)
 .lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
-*.lib $::SG13G2_MODELS/cornerMOShv.lib mos_tt
+.lib $::SG13G2_MODELS/cornerRES.lib res_typ
+.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
+.endif
 "}
-C {devices/lab_pin.sym} 120 -90 0 0 {name=p13 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 160 390 0 0 {name=p14 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 740 10 2 0 {name=p15 sig_type=std_logic lab=vout}
-C {devices/code.sym} -890 -370 0 0 {name=Simulation_parameters only_toplevel=true
+C {devices/lab_pin.sym} -120 30 0 0 {name=p13 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} -90 350 0 0 {name=p14 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 510 10 2 0 {name=p15 sig_type=std_logic lab=vout}
+C {devices/code.sym} -870 -60 0 0 {name=Simulation_parameters only_toplevel=true
 
 value="
 
 Vs vdd 0 1.8 AC 1
+.param temp=27
 .save all
 
 "}
-C {devices/res.sym} 520 90 0 0 {name=R1
-value=33.33k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 520 170 0 0 {name=R2
-value=100k
-footprint=1206
-device=resistor
-m=1}
-C {sg13g2_pr/sg13_lv_pmos.sym} 500 -70 0 0 {name=M1
-L=0.25u
-W=13000.0u
-ng=1
-m=1
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {devices/lab_pin.sym} 160 260 0 0 {name=p12 sig_type=std_logic lab=iref}
-C {devices/lab_pin.sym} 230 10 0 0 {name=p17 sig_type=std_logic lab=iref}
-C {devices/lab_pin.sym} 230 260 0 0 {name=p18 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 250 -190 0 0 {name=p19 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 120 -50 0 0 {name=p1 sig_type=std_logic lab=pos}
-C {devices/lab_pin.sym} 520 220 0 0 {name=p3 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/ihp_ota_v3.sym} 250 -70 0 0 {name=x1}
-C {devices/ammeter.sym} 620 10 3 0 {name=Vmeas savecurrent=true}
-C {devices/ammeter.sym} 250 -160 0 0 {name=Vmeas1 savecurrent=true}
-C {devices/code.sym} -660 -370 0 0 {name=Load_parameters only_toplevel=false 
+C {devices/lab_pin.sym} -90 220 0 0 {name=p12 sig_type=std_logic lab=iref}
+C {devices/lab_pin.sym} -120 10 0 0 {name=p17 sig_type=std_logic lab=iref}
+C {devices/lab_pin.sym} -20 220 0 0 {name=p18 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} -120 -10 0 0 {name=p19 sig_type=std_logic lab=vdd}
+C {devices/ammeter.sym} 300 10 3 0 {name=Vmeas savecurrent=true}
+C {devices/ammeter.sym} -70 -10 3 0 {name=Vmeas1 savecurrent=true}
+C {devices/code.sym} -670 -60 0 0 {name=Load_parameters only_toplevel=false 
 
 value="
 
 .param R=18
-R10 vout 0 \{R\}
+*R10 vout 0 \{R\}
 IL vout 0 PWL(0 0.1m 10u 0.1m 20u 10m 30u 10m)
 *CL vout 0 50p
 
 "}
-C {devices/code.sym} -460 -370 0 0 {name=OTA_parameters only_toplevel=false 
+C {devices/code.sym} -470 -60 0 0 {name=OTA_parameters only_toplevel=false 
 
 value="
 
@@ -153,7 +250,7 @@ value="
 .param w5   = w857*1
 
 "}
-C {devices/code.sym} -900 -150 0 0 {name=Transient_simulation only_toplevel=false 
+C {devices/code.sym} -870 110 0 0 {name=Transient_simulation only_toplevel=false 
 
 value="
 
@@ -163,13 +260,18 @@ save all
 set color0 = white
 tran 1n 1u
 plot v(vout) v(pos) v(vcm)
-plot i(vmeas1)
+plot i(v.x2.vmeas1)
+print @n.x2.xm1.nsg13_lv_pmos[vgs]
+print @n.x2.xm1.nsg13_lv_pmos[vth]
+print @n.x2.xm1.nsg13_lv_pmos[vgs]-@n.x2.xm1.nsg13_lv_pmos[vth]
+print @n.x2.xm1.nsg13_lv_pmos[vds]
+print @n.x2.xm1.nsg13_lv_pmos[gm]
 write ldo_ihp_v3_tb_closeloop_tran.raw
 .endc
 
 .end
 "}
-C {devices/code.sym} -700 -150 0 0 {name=Line_reg_&_Dropout only_toplevel=false 
+C {devices/code.sym} -670 110 0 0 {name=Line_reg_&_Dropout only_toplevel=false 
 
 value="
 
@@ -177,7 +279,7 @@ value="
 reset
 save all
 dc Vs 2.1 0 -0.01
-plot v(vout) v(pos) v(vcm) v(vdd)
+plot v(vout) v(vcm) v(vdd)
 meas dc V_ldo_1.6 FIND v(vout) WHEN v(vdd)=1.6
 meas dc V_ldo_2 FIND v(vout) WHEN v(vdd)=2
 print (V_ldo_1.6-V_ldo_2)/0.4
@@ -186,7 +288,7 @@ write ldo_ihp_v3_tb_closeloop_dc.raw
 
 .end
 "}
-C {devices/code.sym} -500 -150 0 0 {name=PSRR_simulation only_toplevel=false 
+C {devices/code.sym} -470 110 0 0 {name=PSRR_simulation only_toplevel=false 
 
 value="
 
@@ -204,7 +306,7 @@ reset
   print PM*180/PI
   meas ac GM find vdb(vout) when vp(vout)=0
   plot vdb(vout) \{vp(vout)*180/PI\}
-  write tb_opamp_openloop_ac1.raw
+  write ldo_ihp_v3_tb_closeloop_ac.raw
 
   reset
   op
@@ -253,7 +355,7 @@ print v(pos)
 
 .end
 "}
-C {devices/code.sym} -900 30 0 0 {name=Load_reg only_toplevel=false 
+C {devices/code.sym} -870 260 0 0 {name=Load_reg only_toplevel=false 
 
 value="
 
@@ -268,11 +370,12 @@ let load_reg= V_ldo_100u-V_ldo_10m
 let load_current =(-1*i(Vs)-131.8e-6)
 print load_reg/9.9
 plot i(Vmeas) v(vout)-1.2
+write ldo_ihp_v3_tb_closeloop_load.raw
 .endc
 
 .end
 "}
-C {devices/code.sym} -700 30 0 0 {name=settling_time only_toplevel=false 
+C {devices/code.sym} -670 260 0 0 {name=settling_time only_toplevel=false 
 
 value="
 
@@ -284,21 +387,44 @@ alter @Vs[pulse]=[ 1.8 1.6 50u 1u 1u 10u 100u ]
 alter IL 0
 tran 0.1u 100u
 plot v(vdd) v(vout)
-write ldo_ihp_v3_tb_closeloop.raw
+write ldo_ihp_v3_tb_closeloop_settime.raw
 .endc
 
 
 .end
 "}
-C {devices/capa.sym} 740 170 0 0 {name=C1
+C {devices/capa.sym} 420 170 0 0 {name=CL
 m=1
 value=10u
 footprint=1206
 device="ceramic capacitor"}
-C {devices/res.sym} 740 70 0 0 {name=R3
+C {devices/res.sym} 420 70 0 0 {name=Resr
 value=2
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_pin.sym} 740 220 0 0 {name=p4 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 420 220 0 0 {name=p4 sig_type=std_logic lab=vss}
 C {devices/title.sym} -670 570 0 0 {name=l2 author="Daniel Arevalos"}
+C {devices/launcher.sym} 750 530 0 0 {name=h5
+descr="load waves" 
+tclcommand="xschem raw_read $netlist_dir/ldo_ihp_v3_tb_closeloop_tran.raw tran"
+}
+C {devices/code.sym} -480 280 0 0 {name=Temp_sweep only_toplevel=false 
+
+value="
+
+*Simulation
+.control
+dc temp -40 125 1
+plot v(vout)
+.endc
+
+.end
+"}
+C {/home/ac3e/Documents/ihp_design/v3/ldo_v3.sym} 100 10 0 0 {name=x2}
+C {devices/res.sym} 510 110 0 0 {name=Resr1
+value=\{R\}
+footprint=1206
+device=resistor
+m=1}
+C {devices/lab_pin.sym} 510 220 0 0 {name=p1 sig_type=std_logic lab=vss}

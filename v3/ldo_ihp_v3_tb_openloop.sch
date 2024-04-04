@@ -5,6 +5,7 @@ K {}
 V {}
 S {}
 E {}
+T {Off-Chip resistanace} 540 270 3 0 0.4 0.4 {}
 N -340 90 -340 130 {
 lab=iref}
 N 150 -20 150 0 {
@@ -17,18 +18,10 @@ N -340 190 -340 220 {
 lab=vss}
 N -860 -70 -860 -30 {
 lab=vss}
-N 400 140 400 150 {
-lab=#net1}
-N 400 130 400 140 {
-lab=#net1}
 N 0 -40 70 -40 {
 lab=pos}
 N 0 -80 70 -80 {
 lab=vcm}
-N 400 20 400 70 {
-lab=vout}
-N 0 140 400 140 {
-lab=#net1}
 N 400 -30 400 20 {
 lab=vout}
 N 400 -180 400 -90 {
@@ -47,12 +40,8 @@ N 110 0 110 20 {
 lab=iref}
 N -270 90 -270 130 {
 lab=vcm}
-N 400 210 400 230 {
-lab=vss}
 N 400 20 620 20 {
 lab=vout}
-N 0 100 0 140 {
-lab=#net1}
 N 0 0 0 40 {
 lab=pos}
 N -110 0 -110 30 {
@@ -64,7 +53,25 @@ lab=pos}
 N -110 90 -110 120 {
 lab=vin}
 N 210 -60 360 -60 {
+lab=#net1}
+N 620 130 620 170 {
 lab=#net2}
+N 620 230 620 250 {
+lab=vss}
+N 620 20 620 80 {
+lab=vout}
+N 400 130 400 140 {
+lab=#net3}
+N 400 200 400 220 {
+lab=vss}
+N 400 20 400 60 {
+lab=vout}
+N -0 130 400 130 {
+lab=#net3}
+N 0 100 -0 130 {
+lab=#net3}
+N 400 120 400 130 {
+lab=#net3}
 C {devices/vsource.sym} -270 160 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
 C {devices/vsource.sym} -860 0 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
 C {devices/isource.sym} -340 160 2 0 {name=I0 value=DC\{iref\}}
@@ -76,7 +83,8 @@ C {devices/code_shown.sym} -990 -470 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
 .lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
-*.lib $::SG13G2_MODELS/cornerMOShv.lib mos_tt
+.lib $::SG13G2_MODELS/cornerRES.lib res_typ
+.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 "}
 C {devices/lab_pin.sym} 0 -80 0 0 {name=p13 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} -340 220 0 0 {name=p14 sig_type=std_logic lab=vss}
@@ -84,7 +92,7 @@ C {devices/lab_pin.sym} 620 20 2 0 {name=p15 sig_type=std_logic lab=vout}
 C {devices/code.sym} -670 -350 0 0 {name=SIMULATION1 only_toplevel=false 
 
 value="
-.param R=18
+.param R=24k
 R10 vout 0 \{R\}
 *IL vout 0 PWL(0 0.1m 10u 0.1m 20u 10m 30u 10m)
 *CL vout 0 50p
@@ -190,19 +198,9 @@ print v(pos)
 
 .end
 "}
-C {devices/res.sym} 400 100 0 0 {name=R1
-value=33.33k
-footprint=1206
-device=resistor
-m=1}
-C {devices/res.sym} 400 180 0 0 {name=R2
-value=100k
-footprint=1206
-device=resistor
-m=1}
 C {sg13g2_pr/sg13_lv_pmos.sym} 380 -60 0 0 {name=M1
-L=0.3u
-W=15000.0u
+L=0.5u
+W=8000.0u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -213,16 +211,45 @@ C {devices/lab_pin.sym} 110 20 0 0 {name=p17 sig_type=std_logic lab=iref}
 C {devices/lab_pin.sym} -270 90 0 0 {name=p18 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} 130 -180 0 0 {name=p19 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 0 -40 0 0 {name=p1 sig_type=std_logic lab=pos}
-C {devices/lab_pin.sym} 400 230 0 0 {name=p3 sig_type=std_logic lab=vss}
 C {devices/capa.sym} -110 60 0 0 {name=C2
 m=1
 value=1
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} -110 120 0 0 {name=p4 sig_type=std_logic lab=vin}
-C {/home/ac3e/Documents/ihp_design/ihp_ota_v3.sym} 130 -60 0 0 {name=x1}
+C {/home/ac3e/Documents/ihp_design/v3/ihp_ota_v3.sym} 130 -60 0 0 {name=x1}
 C {devices/ind.sym} 0 70 0 0 {name=L2
 m=1
 value=10
 footprint=1206
 device=inductor}
+C {devices/capa.sym} 620 200 0 0 {name=C1
+m=1
+value=10u
+footprint=1206
+device="ceramic capacitor"}
+C {devices/res.sym} 620 100 0 0 {name=R3
+value=2
+footprint=1206
+device=resistor
+m=1}
+C {devices/lab_pin.sym} 620 250 0 0 {name=p6 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 400 220 0 0 {name=p7 sig_type=std_logic lab=vss}
+C {sg13g2_pr/rhigh.sym} 400 170 0 0 {name=R4
+W=0.5e-6
+L=30e-6
+model=rhigh
+spiceprefix=X
+m=1
+R=1360.0
+Imax=0.3e-6
+}
+C {sg13g2_pr/rhigh.sym} 400 90 0 0 {name=R5
+W=0.5e-6
+L=10e-6
+model=rhigh
+spiceprefix=X
+m=1
+R=1360.0
+Imax=0.3e-6
+}

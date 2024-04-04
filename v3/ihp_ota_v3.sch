@@ -209,14 +209,14 @@ model=sg13_lv_nmos
 spiceprefix=X
 }
 C {devices/lab_pin.sym} 400 130 0 0 {name=p6 sig_type=std_logic lab=iref}
-C {devices/res.sym} 380 -70 3 0 {name=R1
-value=10k
-footprint=1206
-device=resistor
-m=1}
-C {devices/capa.sym} 460 -70 3 0 {name=C1
-m=1
-value=3.5p
-footprint=1206
-device="ceramic capacitor"}
 C {devices/opin.sym} 610 -70 0 0 {name=p8 lab=vout}
+C {sg13g2_pr/rhigh.sym} 380 -70 1 0 {name=R2
+W=0.5e-6
+L=3.5e-6
+model=rhigh
+spiceprefix=X
+m=1
+R=1360.0
+Imax=0.3e-6
+}
+C {sg13g2_pr/cap_cmim.sym} 460 -70 3 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
