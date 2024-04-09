@@ -22,20 +22,26 @@ else:
     print(f"file '{file_path}' does not exists")
 # Select and keep only the first column
 # Plot the first column
+f3db= df.iloc[:,2]
 
-Vout = df.iloc[:,1]
 
+inverse = np.power(10, f3db/20)
+print (20*np.log10(inverse.mean()))
+print (20*np.log10(inverse.std()))
 
-print(f"Mean value of Vout: {Vout.mean()}" )
-print(f"Std dev of Vout:  {Vout.std()}" )
+no_bins = 50
+plt.hist(f3db,bins=no_bins)
+plt.xlabel('frequency [MHz]')
+plt.title('PSRR frequency statistical distribution')
 
-plt.hist(Vout, bins=50)
-plt.title('Monte Carlo simulation of the $V_{dd}$ voltage of ldo')  # Replace with your X-axis label
-plt.ylabel('Counts')  # Replace with your Y-axis label
-plt.xlabel('$V_{dd}$ voltage [V]')  # Replace with your plot title
+print("---------------------------------------" )
+print(f"Mean value of PSRR: {f3db.mean()}" )
+print(f"Std dev of PSRR:  {f3db.std()}" )
+print("---------------------------------------" )
+
 # Show the plot
 basename = os.path.basename(file_path)
-fig_file_name=basename + '.png'
+fig_file_name='../fig/' + basename + '.png'
 print(fig_file_name)
-plt.savefig(fig_file_name,dpi=600)
+#plt.savefig(fig_file_name,dpi=600)
 plt.show()

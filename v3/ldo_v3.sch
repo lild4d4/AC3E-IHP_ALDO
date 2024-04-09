@@ -57,7 +57,6 @@ C {devices/lab_pin.sym} -190 -20 0 0 {name=p17 sig_type=std_logic lab=iref}
 C {devices/lab_pin.sym} -170 -220 0 0 {name=p19 sig_type=std_logic lab=ldo_in}
 C {devices/lab_pin.sym} -300 -80 0 0 {name=p1 sig_type=std_logic lab=pos}
 C {devices/lab_pin.sym} 100 190 0 0 {name=p3 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/v3/ihp_ota_v3.sym} -170 -100 0 0 {name=x1}
 C {devices/ammeter.sym} -170 -190 0 0 {name=Vmeas1 savecurrent=true}
 C {sg13g2_pr/rhigh.sym} 100 140 0 0 {name=R2
 W=0.5e-6
@@ -83,3 +82,4 @@ C {devices/opin.sym} -480 -210 0 0 {name=p7 lab=ldo_out}
 C {devices/lab_pin.sym} 170 -20 2 0 {name=p8 sig_type=std_logic lab=ldo_out}
 C {devices/ipin.sym} -520 -190 0 0 {name=p10 lab=iref}
 C {devices/ipin.sym} -520 -170 0 0 {name=p11 lab=vref}
+C {/foss/designs/ihp_design/v3/ihp_ota_v3.sym} -170 -100 0 0 {name=x1}

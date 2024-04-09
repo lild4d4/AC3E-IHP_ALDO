@@ -278,11 +278,18 @@ value="
 .control
 reset
 save all
-dc Vs 2.1 0 -0.01
+dc Vs 0 2.1 0.01
 plot v(vout) v(vcm) v(vdd)
 meas dc V_ldo_1.6 FIND v(vout) WHEN v(vdd)=1.6
-meas dc V_ldo_2 FIND v(vout) WHEN v(vdd)=2
+meas dc V_ldo_2 FIND v(vout) WHEN v(vdd)=2 
 print (V_ldo_1.6-V_ldo_2)/0.4
+
+plot deriv(vout)
+let der = deriv(vout)
+
+meas dc V_ldo_vdropout FIND v(vdd) WHEN der=0.02 CROSS=LAST
+print V_ldo_vdropout-1.2
+
 write ldo_ihp_v3_tb_closeloop_dc.raw
 .endc
 
@@ -421,10 +428,10 @@ plot v(vout)
 
 .end
 "}
-C {/home/ac3e/Documents/ihp_design/v3/ldo_v3.sym} 100 10 0 0 {name=x2}
 C {devices/res.sym} 510 110 0 0 {name=Resr1
 value=\{R\}
 footprint=1206
 device=resistor
 m=1}
 C {devices/lab_pin.sym} 510 220 0 0 {name=p1 sig_type=std_logic lab=vss}
+C {/foss/designs/ihp_design/v3/ldo_v3.sym} 100 10 0 0 {name=x1}
