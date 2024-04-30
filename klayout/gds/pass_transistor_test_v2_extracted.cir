@@ -1,0 +1,10 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 29/04/2024 15:27
+
+* cell pass_transistor_test_v2
+* pin VDD
+* pin VOUT
+* pin VOTA_OUT
+.SUBCKT pass_transistor_test_v2 VDD VOUT VOTA_OUT
+* device instance $1 r0 *1 53.39,8.332 sg13_lv_pmos
+M$1 VDD VOTA_OUT VOUT \$12 sg13_lv_pmos W=7999.199999999984 L=0.5
+.ENDS pass_transistor_test_v2

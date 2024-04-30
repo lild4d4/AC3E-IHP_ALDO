@@ -1,0 +1,13 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 29/04/2024 14:12
+
+* cell rdiv_v2
+* pin IN_P
+* pin VOUT
+.SUBCKT rdiv_v2 IN_P VOUT
+* device instance $1 r0 *1 14.014,3.8 res_rhigh
+R$1 IN_P \$2 res_rhigh w=0.5 l=2.5 b=0.0 ps=0.0 m=1.0
+* device instance $2 r0 *1 17.047,8.496 res_rhigh
+R$2 \$2 \$3 res_rhigh w=0.5 l=5.0 b=0.0 ps=0.0 m=1.0
+* device instance $3 r0 *1 20.066,17.332 res_rhigh
+R$3 \$3 VOUT res_rhigh w=0.5 l=2.5 b=0.0 ps=0.0 m=1.0
+.ENDS rdiv_v2
