@@ -1,5 +1,4 @@
 *.spice
-*.png
 klayout/*.cir
 *.lyrdb
 simulations/*
