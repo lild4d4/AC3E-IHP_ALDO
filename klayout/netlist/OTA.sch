@@ -121,8 +121,6 @@ N 490 -50 530 -50 {
 lab=vout}
 N 530 -80 530 -50 {
 lab=vout}
-N 320 -50 430 -50 {
-lab=#net3}
 N 120 -140 120 -50 {
 lab=#net3}
 N 120 -50 320 -50 {
@@ -133,6 +131,8 @@ N 320 -110 490 -110 {
 lab=#net3}
 N 530 -50 610 -50 {
 lab=vout}
+N 410 -50 430 -50 {}
+N 320 -50 350 -50 {}
 C {sg13g2_pr/sg13_lv_nmos.sym} -130 20 2 1 {name=M1
 L=2u
 W=15u
@@ -209,3 +209,12 @@ spiceprefix=X
 C {devices/lab_pin.sym} 400 150 0 0 {name=p6 sig_type=std_logic lab=iref}
 C {devices/opin.sym} 610 -50 0 0 {name=p8 lab=vout}
 C {sg13g2_pr/cap_cmim.sym} 460 -50 3 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
+C {sg13g2_pr/rhigh.sym} 380 -50 1 0 {name=R2
+W=0.5e-6
+L=3.5e-6
+model=rhigh
+spiceprefix=X
+m=1
+R=1360.0
+Imax=0.3e-6
+}
