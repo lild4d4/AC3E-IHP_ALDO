@@ -109,8 +109,6 @@ N 430 170 450 170 {
 lab=vss}
 N 450 170 450 240 {
 lab=vss}
-N 440 240 450 240 {
-lab=vss}
 N 430 -90 450 -90 {
 lab=vdd}
 N 450 -230 450 -90 {
@@ -145,130 +143,22 @@ N 660 -230 660 -30 {
 lab=vdd}
 N 650 -230 660 -230 {
 lab=vdd}
-N 650 100 810 100 {
-lab=#net5}
-N 810 80 810 100 {
-lab=#net5}
-N 810 10 810 20 {
-lab=#net6}
-N 810 10 960 10 {
-lab=#net6}
-N 960 10 960 20 {
-lab=#net6}
-N 960 80 960 100 {
-lab=#net7}
-N 960 100 1110 100 {
-lab=#net7}
-N 1110 80 1110 100 {
-lab=#net7}
-N 1110 10 1110 20 {
-lab=#net8}
-N 1110 10 1200 10 {
-lab=#net8}
-N 1200 10 1200 120 {
-lab=#net8}
-N 650 120 1200 120 {
-lab=#net8}
-N 650 80 650 100 {
-lab=#net5}
+N 650 80 650 120 {
+lab=vin_p}
 N 650 0 650 20 {
-lab=#net9}
-N 650 250 810 250 {
-lab=#net10}
-N 810 230 810 250 {
-lab=#net10}
-N 810 160 810 170 {
-lab=#net11}
-N 810 160 960 160 {
-lab=#net11}
-N 960 160 960 170 {
-lab=#net11}
-N 960 230 960 250 {
-lab=#net12}
-N 960 250 1110 250 {
-lab=#net12}
-N 1110 230 1110 250 {
-lab=#net12}
-N 1110 160 1110 170 {
-lab=#net13}
-N 1110 160 1200 160 {
-lab=#net13}
-N 650 230 650 250 {
-lab=#net10}
-N 1420 170 1420 180 {
-lab=#net14}
-N 1420 170 1570 170 {
-lab=#net14}
-N 1570 170 1570 180 {
-lab=#net14}
-N 1570 240 1570 260 {
-lab=#net15}
-N 1570 260 1720 260 {
-lab=#net15}
-N 1720 240 1720 260 {
-lab=#net15}
-N 1720 170 1720 180 {
-lab=#net16}
-N 1720 170 1810 170 {
-lab=#net16}
-N 1810 170 1810 280 {
-lab=#net16}
-N 1260 160 1260 180 {
-lab=#net13}
-N 1900 270 2060 270 {
-lab=#net17}
-N 2060 250 2060 270 {
-lab=#net17}
-N 2060 180 2060 190 {
-lab=#net18}
-N 2060 180 2210 180 {
-lab=#net18}
-N 2210 180 2210 190 {
-lab=#net18}
-N 2210 250 2210 270 {
-lab=#net19}
-N 2210 270 2360 270 {
-lab=#net19}
-N 2360 250 2360 270 {
-lab=#net19}
-N 2360 180 2360 190 {
-lab=vss}
-N 2360 180 2450 180 {
-lab=vss}
-N 2450 180 2450 290 {
-lab=vss}
-N 1900 250 1900 270 {
-lab=#net17}
-N 1900 170 1900 190 {
-lab=#net16}
-N 1240 160 1260 160 {
-lab=#net13}
-N 1240 160 1240 260 {
-lab=#net13}
-N 1200 260 1240 260 {
-lab=#net13}
-N 1200 160 1200 260 {
-lab=#net13}
-N 1810 280 1840 280 {
-lab=#net16}
-N 1840 170 1840 280 {
-lab=#net16}
-N 1840 170 1900 170 {
-lab=#net16}
+lab=#net5}
 N 650 120 650 170 {
-lab=#net8}
-N 1260 240 1260 260 {
-lab=#net20}
-N 1260 260 1420 260 {
-lab=#net20}
-N 1420 240 1420 260 {
-lab=#net20}
-N 440 290 2450 290 {}
-N 440 240 440 290 {}
-N 430 240 440 240 {
+lab=vin_p}
+N 430 240 450 240 {
 lab=vss}
-N 100 120 650 120 {}
-N 100 40 100 120 {}
+N 100 120 650 120 {
+lab=vin_p}
+N 100 40 100 120 {
+lab=vin_p}
+N 450 240 650 240 {
+lab=vss}
+N 650 230 650 240 {
+lab=vss}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 40 2 1 {name=M1
 L=2u
 W=15u
@@ -364,34 +254,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/rhigh.sym} 650 50 0 0 {name=R1
 W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 810 50 0 0 {name=R4
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 960 50 0 0 {name=R5
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1110 50 0 0 {name=R6
-W=0.5e-6
-L=2.5e-6
+L=10e-6
 model=rhigh
 spiceprefix=X
 m=1
@@ -400,106 +263,7 @@ Imax=0.3e-6
 }
 C {sg13g2_pr/rhigh.sym} 650 200 0 0 {name=R3
 W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 810 200 0 0 {name=R7
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 960 200 0 0 {name=R8
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1110 200 0 0 {name=R9
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1260 210 0 0 {name=R10
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1420 210 0 0 {name=R11
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1570 210 0 0 {name=R12
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1720 210 0 0 {name=R13
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 1900 220 0 0 {name=R14
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 2060 220 0 0 {name=R15
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 2210 220 0 0 {name=R16
-W=0.5e-6
-L=2.5e-6
-model=rhigh
-spiceprefix=X
-m=1
-R=1360.0
-Imax=0.3e-6
-}
-C {sg13g2_pr/rhigh.sym} 2360 220 0 0 {name=R17
-W=0.5e-6
-L=2.5e-6
+L=30e-6
 model=rhigh
 spiceprefix=X
 m=1
