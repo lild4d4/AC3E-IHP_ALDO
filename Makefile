@@ -1,6 +1,6 @@
 export SIMULATION_DIR=$(HOME_DIR)/simulations
 
-export SCRIPTS_DIR ?= $(SIMULATION_DIR)/scripts
+export SCRIPTS_DIR ?= $(HOME_DIR)/python/monte_carlo
 export CSV_DIR ?= $(SIMULATION_DIR)/csv
 export FIG_DIR ?= $(SIMULATION_DIR)/fig
 
@@ -20,10 +20,10 @@ all: figures
 .PHONY: ngspice_run
 ngspice_run: $(CSV_DIR)/mc_ldo_psrr.csv $(CSV_DIR)/mc_ldo_pm.csv
 
-$(CSV_DIR)/mc_ldo_psrr.csv: $(SIMULATION_DIR)/mc_ldo_ihp_v3_tb_closeloop.spice
+$(CSV_DIR)/mc_ldo_psrr.csv: 
 	ngspice -b $(SIMULATION_DIR)/mc_ldo_ihp_v3_tb_closeloop.spice
 	
-$(CSV_DIR)/mc_ldo_pm.csv: $(SIMULATION_DIR)/mc_ldo_ihp_v3_tb_openloop.spice
+$(CSV_DIR)/mc_ldo_pm.csv: 
 	ngspice -b $(SIMULATION_DIR)/mc_ldo_ihp_v3_tb_openloop.spice
 
 # ==============================================

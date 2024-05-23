@@ -1,2 +1,0 @@
-from simulations.scripts import *
-

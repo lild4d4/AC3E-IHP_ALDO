@@ -212,14 +212,14 @@ C {devices/lab_pin.sym} 400 130 0 0 {name=p6 sig_type=std_logic lab=iref}
 C {devices/opin.sym} 610 -70 0 0 {name=p8 lab=vout}
 C {sg13g2_pr/rhigh.sym} 380 -70 1 0 {name=R2
 W=0.5e-6
-L=3.5e-6
+L=10e-6
 model=rhigh
 spiceprefix=X
 m=1
 R=1360.0
 Imax=0.3e-6
 }
-C {sg13g2_pr/cap_cmim.sym} 460 -70 3 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 460 -70 1 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
 C {devices/code.sym} -420 -230 0 0 {name=OTA_parameters only_toplevel=false 
 
 value="

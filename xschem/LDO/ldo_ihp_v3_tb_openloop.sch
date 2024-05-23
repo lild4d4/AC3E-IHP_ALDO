@@ -6,17 +6,17 @@ V {}
 S {}
 E {}
 T {Off-Chip resistanace} 310 110 3 0 0.4 0.4 {}
-N -340 90 -340 130 {
+N -690 70 -690 110 {
 lab=iref}
 N -80 -180 -80 -160 {
 lab=vss}
-N -490 190 -490 220 {
+N -840 170 -840 200 {
 lab=GND}
-N -270 190 -270 220 {
+N -620 170 -620 200 {
 lab=vss}
-N -340 190 -340 220 {
+N -690 170 -690 200 {
 lab=vss}
-N -490 90 -490 130 {
+N -840 70 -840 110 {
 lab=vss}
 N -230 -200 -160 -200 {
 lab=pos}
@@ -38,7 +38,7 @@ N 170 -340 190 -340 {
 lab=vdd}
 N -120 -160 -120 -140 {
 lab=iref}
-N -270 90 -270 130 {
+N -620 70 -620 110 {
 lab=vcm}
 N 170 -140 390 -140 {
 lab=vout}
@@ -72,20 +72,22 @@ N -230 -60 -230 -30 {
 lab=#net3}
 N 170 -40 170 -30 {
 lab=#net3}
-N 500 -140 500 -80 {
-lab=vout}
-N 390 -140 500 -140 {
-lab=vout}
-N 500 -20 500 90 {
+N 470 10 470 90 {
 lab=vss}
-N 390 90 500 90 {
+N 540 10 540 90 {
 lab=vss}
-C {devices/vsource.sym} -270 160 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
-C {devices/vsource.sym} -490 160 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
-C {devices/isource.sym} -340 160 2 0 {name=I0 value=DC\{iref\}}
-C {devices/lab_pin.sym} -270 220 0 0 {name=p2 sig_type=std_logic lab=vss}
-C {devices/gnd.sym} -490 220 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} -490 90 0 0 {name=p5 sig_type=std_logic lab=vss}
+N 540 -140 580 -140 {
+lab=vout}
+N 540 -140 540 -50 {
+lab=vout}
+N 390 -140 540 -140 {
+lab=vout}
+C {devices/vsource.sym} -620 140 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
+C {devices/vsource.sym} -840 140 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
+C {devices/isource.sym} -690 140 2 0 {name=I0 value=DC\{iref\}}
+C {devices/lab_pin.sym} -620 200 0 0 {name=p2 sig_type=std_logic lab=vss}
+C {devices/gnd.sym} -840 200 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} -840 70 0 0 {name=p5 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -80 -160 2 0 {name=p9 sig_type=std_logic lab=vss}
 C {devices/code_shown.sym} -990 -470 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
@@ -95,8 +97,8 @@ value="
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 "}
 C {devices/lab_pin.sym} -230 -240 0 0 {name=p13 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} -340 220 0 0 {name=p14 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 390 -140 2 0 {name=p15 sig_type=std_logic lab=vout}
+C {devices/lab_pin.sym} -690 200 0 0 {name=p14 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 580 -140 2 0 {name=p15 sig_type=std_logic lab=vout}
 C {devices/code.sym} -990 -350 0 0 {name=Simulation_parameters only_toplevel=false 
 
 value="
@@ -114,9 +116,9 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {devices/lab_pin.sym} -340 90 0 0 {name=p12 sig_type=std_logic lab=iref}
+C {devices/lab_pin.sym} -690 70 0 0 {name=p12 sig_type=std_logic lab=iref}
 C {devices/lab_pin.sym} -120 -140 0 0 {name=p17 sig_type=std_logic lab=iref}
-C {devices/lab_pin.sym} -270 90 0 0 {name=p18 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} -620 70 0 0 {name=p18 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} -100 -340 0 0 {name=p19 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} -230 -200 0 0 {name=p1 sig_type=std_logic lab=pos}
 C {devices/capa.sym} -340 -100 0 0 {name=C2
@@ -279,12 +281,23 @@ value="
 C {devices/code.sym} -790 -350 0 0 {name=Load_parameters only_toplevel=false 
 
 value="
-.param R=24k
+.param R=12
 *R10 vout 0 \{R\}
 *IL vout 0 PWL(0 0.1m 10u 0.1m 20u 10m 30u 10m)
 *CL vout 0 50p
 
 .end
 "}
-C {/home/ac3e/Documents/ihp_design/v3/OTA/ihp_ota_v3.sym} -100 -220 0 0 {name=x1}
-C {devices/isource.sym} 500 -50 0 0 {name=I1 value=1m}
+C {/home/ac3e/Documents/ihp_design/xschem/OTA/ihp_ota_v3.sym} -100 -220 0 0 {name=x1}
+C {devices/lab_pin.sym} 470 90 0 0 {name=p3 sig_type=std_logic lab=vss}
+C {devices/res.sym} 470 -20 0 0 {name=Resr1
+value=\{R\}
+footprint=1206
+device=resistor
+m=1}
+C {devices/capa.sym} 540 -20 0 0 {name=Cc1
+m=1
+value=50p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/lab_pin.sym} 540 90 0 0 {name=p8 sig_type=std_logic lab=vss}
