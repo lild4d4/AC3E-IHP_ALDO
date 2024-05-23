@@ -2,6 +2,8 @@
 
 > © Daniel Arevalos, Innovations for High Performance Microelectronics (IHP).
 
+![LDO_AC3E_nofill](docs/source/fig/LDO_AC3E_nofill.png)
+
 ### Directory Structure
 
 ```
