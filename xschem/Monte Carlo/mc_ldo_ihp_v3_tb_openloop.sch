@@ -72,6 +72,18 @@ N 200 20 200 50 {
 lab=#net3}
 N 600 40 600 50 {
 lab=#net3}
+N 930 80 930 160 {
+lab=vss}
+N 1020 80 1020 160 {
+lab=vss}
+N 930 -60 1020 -60 {
+lab=vout}
+N 1020 -60 1020 20 {
+lab=vout}
+N 930 -60 930 20 {
+lab=vout}
+N 820 -60 930 -60 {
+lab=vout}
 C {devices/vsource.sym} 160 240 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
 C {devices/vsource.sym} -60 240 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
 C {devices/isource.sym} 90 240 2 0 {name=I0 value=DC\{iref\}}
@@ -200,7 +212,6 @@ R10 vout 0 \{R\}
 
 .end
 "}
-C {/home/ac3e/Documents/ihp_design/v3/OTA/ihp_ota_v3.sym} 330 -140 0 0 {name=x1}
 C {devices/code_shown.sym} 40 -390 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .param mm_ok=1
@@ -213,3 +224,16 @@ value="
 
 
 "}
+C {/home/ac3e/Documents/ihp_design/xschem/OTA/ihp_ota_v3.sym} 330 -140 0 0 {name=x1}
+C {devices/res.sym} 930 50 0 0 {name=Resr1
+value=\{R\}
+footprint=1206
+device=resistor
+m=1}
+C {devices/lab_pin.sym} 930 160 0 0 {name=p3 sig_type=std_logic lab=vss}
+C {devices/capa.sym} 1020 50 0 0 {name=Cc1
+m=1
+value=50p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/lab_pin.sym} 1020 160 0 0 {name=p8 sig_type=std_logic lab=vss}

@@ -40,6 +40,12 @@ N 70 -210 70 -180 {
 lab=vout}
 N -20 -210 70 -210 {
 lab=vout}
+N 250 -210 250 -140 {
+lab=vout}
+N 250 -80 250 0 {
+lab=vss}
+N 160 -210 250 -210 {
+lab=vout}
 C {devices/vsource.sym} -270 70 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
 C {devices/gnd.sym} -270 130 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -270 0 0 0 {name=p5 sig_type=std_logic lab=vss}
@@ -81,7 +87,7 @@ C {devices/code.sym} -1020 -280 0 0 {name=Load_parameters only_toplevel=false
 
 value="
 
-.param R=18
+.param R=12
 *R10 vout 0 \{R\}
 IL vout 0 PWL(0 0.1m 10u 0.1m 20u 10m 30u 10m)
 *CL vout 0 50p
@@ -241,4 +247,10 @@ end
 .endc
 
 "}
-C {/home/ac3e/Documents/ihp_design/v3/LDO/ldo_v3.sym} -250 -210 0 0 {name=x1}
+C {/home/ac3e/Documents/ihp_design/xschem/LDO/ldo_v3.sym} -250 -210 0 0 {name=x1}
+C {devices/capa.sym} 250 -110 0 0 {name=Cc1
+m=1
+value=50p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/lab_pin.sym} 250 0 0 0 {name=p3 sig_type=std_logic lab=vss}
