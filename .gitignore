@@ -1,4 +1,5 @@
 *.spice
-klayout/*.cir
+*.cir
 *.lyrdb
-simulations/*
+**/*.cir
+results
