@@ -22,9 +22,9 @@ lab=#net2}
 N 20 70 20 110 {
 lab=#net2}
 N -210 -230 -210 -180 {
-lab=vdd}
+lab=ldo_in}
 N 20 -230 20 -180 {
-lab=vdd}
+lab=ldo_in}
 N -90 110 -90 140 {
 lab=#net2}
 N -210 110 -90 110 {
@@ -50,19 +50,19 @@ lab=vss}
 N -90 240 -30 240 {
 lab=vss}
 N -90 -230 20 -230 {
-lab=vdd}
+lab=ldo_in}
 N 20 -150 40 -150 {
-lab=vdd}
+lab=ldo_in}
 N 40 -230 40 -150 {
-lab=vdd}
+lab=ldo_in}
 N 20 -230 40 -230 {
-lab=vdd}
+lab=ldo_in}
 N -230 -150 -210 -150 {
-lab=vdd}
+lab=ldo_in}
 N -230 -230 -230 -150 {
-lab=vdd}
+lab=ldo_in}
 N -230 -230 -210 -230 {
-lab=vdd}
+lab=ldo_in}
 N -520 170 -500 170 {
 lab=vss}
 N -520 170 -520 240 {
@@ -74,15 +74,15 @@ lab=iref}
 N -500 240 -90 240 {
 lab=vss}
 N -280 40 -250 40 {
-lab=vin_n}
+lab=vref}
 N 60 40 100 40 {
 lab=vin_p}
 N -90 240 -90 270 {
 lab=vss}
 N -90 -250 -90 -230 {
-lab=vdd}
+lab=ldo_in}
 N -210 -230 -90 -230 {
-lab=vdd}
+lab=ldo_in}
 N 20 -30 20 10 {
 lab=#net3}
 N -30 40 20 40 {
@@ -96,9 +96,9 @@ lab=vss}
 N 430 -30 430 140 {
 lab=vout}
 N 430 -230 430 -120 {
-lab=vdd}
+lab=ldo_in}
 N 40 -230 430 -230 {
-lab=vdd}
+lab=ldo_in}
 N 300 170 390 170 {
 lab=iref}
 N 430 200 430 240 {
@@ -110,11 +110,11 @@ lab=vss}
 N 450 170 450 240 {
 lab=vss}
 N 430 -90 450 -90 {
-lab=vdd}
+lab=ldo_in}
 N 450 -230 450 -90 {
-lab=vdd}
+lab=ldo_in}
 N 430 -230 450 -230 {
-lab=vdd}
+lab=ldo_in}
 N 390 -30 430 -30 {
 lab=vout}
 N 430 -60 430 -30 {
@@ -134,19 +134,19 @@ lab=#net4}
 N 220 -30 250 -30 {
 lab=#net3}
 N 650 -230 650 -60 {
-lab=vdd}
+lab=ldo_in}
 N 450 -230 650 -230 {
-lab=vdd}
+lab=ldo_in}
 N 650 -30 660 -30 {
-lab=vdd}
+lab=ldo_in}
 N 660 -230 660 -30 {
-lab=vdd}
+lab=ldo_in}
 N 650 -230 660 -230 {
-lab=vdd}
+lab=ldo_in}
 N 650 80 650 120 {
 lab=vin_p}
 N 650 0 650 20 {
-lab=#net5}
+lab=ldo_out}
 N 650 120 650 170 {
 lab=vin_p}
 N 430 240 450 240 {
@@ -159,6 +159,8 @@ N 450 240 650 240 {
 lab=vss}
 N 650 230 650 240 {
 lab=vss}
+N 650 20 810 20 {
+lab=ldo_out}
 C {sg13g2_pr/sg13_lv_nmos.sym} -230 40 2 1 {name=M1
 L=2u
 W=15u
@@ -209,11 +211,11 @@ spiceprefix=X
 }
 C {devices/ipin.sym} -500 60 1 0 {name=p1 lab=iref
 }
-C {devices/ipin.sym} -280 40 0 0 {name=p2 lab=vin_n
+C {devices/ipin.sym} -280 40 0 0 {name=p2 lab=vref
 }
 C {devices/ipin.sym} 100 40 2 0 {name=p3 lab=vin_p
 }
-C {devices/iopin.sym} -90 -250 3 0 {name=p4 lab=vdd}
+C {devices/iopin.sym} -90 -250 3 0 {name=p4 lab=ldo_in}
 C {devices/iopin.sym} -90 270 1 0 {name=p5 lab=vss}
 C {devices/lab_pin.sym} -300 170 0 0 {name=p7 sig_type=std_logic lab=iref}
 C {sg13g2_pr/sg13_lv_pmos.sym} 410 -90 0 0 {name=M6
@@ -234,10 +236,10 @@ spiceprefix=X
 }
 C {devices/lab_pin.sym} 300 170 0 0 {name=p6 sig_type=std_logic lab=iref}
 C {devices/opin.sym} 510 -30 1 0 {name=p8 lab=vout}
-C {sg13g2_pr/cap_cmim.sym} 360 -30 3 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 360 -30 1 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
 C {sg13g2_pr/rhigh.sym} 280 -30 1 0 {name=R2
 W=0.5e-6
-L=3.5e-6
+L=10e-6
 model=rhigh
 spiceprefix=X
 m=1
@@ -270,3 +272,4 @@ m=1
 R=1360.0
 Imax=0.3e-6
 }
+C {devices/iopin.sym} 810 20 0 0 {name=p9 lab=ldo_out}
