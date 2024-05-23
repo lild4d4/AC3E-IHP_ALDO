@@ -83,4 +83,4 @@ C {devices/lab_pin.sym} 170 -20 2 0 {name=p8 sig_type=std_logic lab=ldo_out}
 C {devices/ipin.sym} -520 -190 0 0 {name=p10 lab=iref}
 C {devices/ipin.sym} -520 -170 0 0 {name=p11 lab=vref}
 C {devices/lab_pin.sym} -10 -100 1 0 {name=p4 sig_type=std_logic lab=vota}
-C {/home/ac3e/Documents/ihp_design/v3/OTA/ihp_ota_v3.sym} -170 -100 0 0 {name=x1}
+C {/home/ac3e/Documents/ihp_design/xschem/OTA/ihp_ota_v3.sym} -170 -100 0 0 {name=x1}
