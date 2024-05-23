@@ -27,15 +27,15 @@ The design consist in:
 5. TGATE1: transmission gate for testing.
 6. TGATE2: transmission gate for testing. 
 
-<img align="right" width="500" src="docs/source/fig/LDO_AC3E_designs.png">
+<img align="right" width="300" src="docs/source/fig/LDO_AC3E_designs.png">
 
 
 | Pin Name     | Type         | Description                              |
 | ------------ | ------------ | ---------------------------------------- |
-| Vout_ldo_cl  | Analog       | LDO Closed-Loop design output            |
-| Vin_ldo_cl   | Power Supply | LDO Closed-Loop design Input voltage     |
-| Vref_ldo_cl  | Analog       | LDO Closed-Loop design Voltage reference |
-| ibias_ldo_cl | Analog       | LDO Closed-Loop design ibias current     |
+| Vout_ldo_cl  | Analog       | LDO CL design output            |
+| Vin_ldo_cl   | Power Supply | LDO CL design Input voltage     |
+| Vref_ldo_cl  | Analog       | LDO CL design Voltage reference |
+| ibias_ldo_cl | Analog       | LDO CL design ibias current     |
 | TGATE1_IN    | Analog       | Tgate1 input                             |
 | TGATE2_IN    | Analog       | Tgate2 input                             |
 | TGATE1_EN    | Digital      | Tgate1 enable                            |
@@ -54,10 +54,10 @@ The design consist in:
 | Vdrain_pt    | Analog       | Pass Transistor Drain                    |
 | Vss          | Power Supply | Global Ground                            |
 | Vsource_ota  |              | Pass Transistor source                   |
-| vdiv_ldo_ol  | Analog       | LDO Open-Loop volage divider output      |
-| pos_ldo_ol   | Analog       | LDO Open-Loop positive input             |
-| Vout_ldo_ol  | Analog       | LDO Open-Loop output voltage             |
-| ibias_ldo_ol | Analog       | LDO Open-Loop bias current               |
-| vref_ldo_ol  | Analog       | LDO Open-Loop voltage reference          |
-| Vin_ldo_ol   | Power Supply | LDO Open-Loop power supply               |
+| vdiv_ldo_ol  | Analog       | LDO OL volage divider output      |
+| pos_ldo_ol   | Analog       | LDO OL positive input             |
+| Vout_ldo_ol  | Analog       | LDO OL output voltage             |
+| ibias_ldo_ol | Analog       | LDO OL bias current               |
+| vref_ldo_ol  | Analog       | LDO OL voltage reference          |
+| Vin_ldo_ol   | Power Supply | LDO OL power supply               |
 
