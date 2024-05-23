@@ -2,9 +2,19 @@
 
 > © Daniel Arevalos, Innovations for High Performance Microelectronics (IHP).
 
-![LDO_AC3E_nofill](docs/source/fig/LDO_AC3E_nofill.png)
+This is a design made as an example for the IHP-Open-PDK technology.The design consist in: 
 
-![LDO_AC3E_designs](docs/source/fig/LDO_AC3E_designs.png)
+1. LDO_Closed-loop: low dropout regulator with feedback loop 
+2. LDO_Open-loop: low dropout regulator with the feedback loop opened.
+3. Pass transistor: The pass transistor used in the LDO. 
+4. OTA Open-Loop: Two stage Transconductance amplifier used in the LDO design.
+5. TGATE1: transmission gate for testing.
+6. TGATE2: transmission gate for testing. 
+
+![](docs/source/fig/LDO_AC3E_nofill.png)
+
+<img src="docs/source/fig/LDO_AC3E_designs.png" width="1000">
+
 
 ### Directory Structure
 
