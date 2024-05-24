@@ -27,8 +27,7 @@ The design consist in:
 5. TGATE1: transmission gate for testing.
 6. TGATE2: transmission gate for testing. 
 
-<img align="right" width="300" src="docs/source/fig/LDO_AC3E_designs.png">
-
+<img align="right" width="250" src="docs/source/fig/LDO_AC3E_designs.png">
 
 | Pin Name     | Type         | Description                              |
 | ------------ | ------------ | ---------------------------------------- |
@@ -60,4 +59,5 @@ The design consist in:
 | ibias_ldo_ol | Analog       | LDO OL bias current               |
 | vref_ldo_ol  | Analog       | LDO OL voltage reference          |
 | Vin_ldo_ol   | Power Supply | LDO OL power supply               |
+
 
