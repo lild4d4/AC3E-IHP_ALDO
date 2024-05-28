@@ -77,8 +77,8 @@ Imax=0.3e-6
 C {devices/iopin.sym} 690 60 0 0 {name=p9 lab=vdiv_out
 }
 C {devices/iopin.sym} 720 -50 0 0 {name=p10 lab=ldo_out}
-C {/home/ac3e/Documents/ihp_design/xschem/OTA/ota.sym} 260 -90 0 0 {name=x1}
 C {devices/iopin.sym} 260 -170 3 0 {name=p6 lab=ldo_in}
 C {devices/iopin.sym} 560 200 1 0 {name=p7 lab=vss}
 C {devices/ipin.sym} 180 -110 0 0 {name=p2 lab=vref
 }
+C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 260 -90 0 0 {name=x1}

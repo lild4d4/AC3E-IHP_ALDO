@@ -213,7 +213,6 @@ print inoise_total onoise_total
 
 .end
 "}
-C {/home/ac3e/Documents/ihp_design/v3/OTA/ihp_ota_v3.sym} 390 -20 0 0 {name=x1}
 C {devices/code_shown.sym} 170 -510 0 0 {name=MODEL1 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -226,3 +225,4 @@ value="
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 .endif
 "}
+C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 390 -20 0 0 {name=x1}

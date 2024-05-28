@@ -136,48 +136,48 @@ lab=#net3}
 N 530 -70 610 -70 {
 lab=vout}
 C {sg13g2_pr/sg13_lv_nmos.sym} -130 0 2 1 {name=M1
-L=\{lpar\}
-W=\{wpar\}
+L=2u
+W=15u
 ng=1
-m=\{mpar\}
+m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 140 0 2 0 {name=M2
-L=\{lpar\}
-W=\{wpar\}
+L=2u
+W=15u
 ng=1
-m=\{mpar\}
+m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 100 -190 0 0 {name=M3
-L=\{l34\}
-W=\{w34\}
+L=1u
+W=2u
 ng=1
-m=\{m34\}
+m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -90 -190 0 1 {name=M4
-L=\{l34\}
-W=\{w34\}
+L=1u
+W=2u
 ng=1
-m=\{m34\}
+m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -10 130 2 1 {name=M5
-L=\{l857\}
-W=\{w5\}
+L=2u
+W=6u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -380 130 2 0 {name=M8
-L=\{l857\}
-W=\{w857\}
+L=2u
+W=6u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -193,16 +193,16 @@ C {devices/iopin.sym} 10 -290 3 0 {name=p4 lab=vdd}
 C {devices/iopin.sym} 10 230 1 0 {name=p5 lab=vss}
 C {devices/lab_pin.sym} -200 130 0 0 {name=p7 sig_type=std_logic lab=iref}
 C {sg13g2_pr/sg13_lv_pmos.sym} 510 -130 0 0 {name=M6
-L=\{l6\}
-W=\{w6\}
+L=0.5u
+W=20u
 ng=1
-m=\{m6\}
+m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 510 130 2 1 {name=M7
-L=\{l857\}
-W=\{w7\}
+L=2u
+W=24u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -220,28 +220,3 @@ R=1360.0
 Imax=0.3e-6
 }
 C {sg13g2_pr/cap_cmim.sym} 460 -70 1 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
-C {devices/code.sym} -420 -230 0 0 {name=OTA_parameters only_toplevel=false 
-
-value="
-
-
-.param w857 = 6u
-.param l857 = 2u
-
-.param wpar = 15u
-.param lpar = 2u
-.param mpar = 1
-
-.param w34  = 2u
-.param l34  = 1u
-.param m34  = 1
-
-.param w6   = 20u
-.param l6   = 0.5u
-.param m6   = 1
-
-.param w7   = w857*4
-.param w5   = w857*1
-
-.end
-"}

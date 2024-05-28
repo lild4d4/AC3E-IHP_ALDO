@@ -11,8 +11,6 @@ N -320 -80 -320 -60 {
 lab=8}
 N -470 -140 -450 -140 {
 lab=4}
-N -200 -140 -180 -140 {
-lab=1}
 N -470 -120 -450 -120 {
 lab=3}
 N -10 -160 10 -160 {
@@ -67,6 +65,8 @@ N -540 120 -520 120 {
 lab=5}
 N 40 180 40 200 {
 lab=8}
+N -200 -140 -180 -140 {
+lab=1}
 C {devices/iopin.sym} -670 -70 2 0 {name=p6 lab=1}
 C {devices/iopin.sym} -670 -40 2 0 {name=p1 lab=2}
 C {devices/iopin.sym} -670 -10 2 0 {name=p2 lab=3
@@ -146,7 +146,7 @@ C {devices/lab_pin.sym} -540 120 0 0 {name=p58 sig_type=std_logic lab=5
 }
 C {devices/lab_pin.sym} 40 200 0 0 {name=p59 sig_type=std_logic lab=8
 }
-C {/home/ac3e/Documents/ihp_design/klayout/netlist/LDO.sym} -330 -140 0 0 {name=x1}
-C {/home/ac3e/Documents/ihp_design/klayout/netlist/LDO_openloop.sym} 130 -140 0 0 {name=x2}
-C {/home/ac3e/Documents/ihp_design/klayout/netlist/pass_transistor.sym} 480 -140 0 0 {name=x3}
-C {/home/ac3e/Documents/ihp_design/klayout/netlist/OTA.sym} 470 110 0 0 {name=x6}
+C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_closeloop.sym} -330 -140 0 0 {name=x1}
+C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_openloop.sym} 130 -140 0 0 {name=x2}
+C {/home/ac3e/Documents/ihp_design/xschem/pass_transistor/pass_transistor.sym} 480 -140 0 0 {name=x3}
+C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 470 110 0 0 {name=x4}

@@ -80,9 +80,9 @@ C {devices/lab_pin.sym} -10 -230 2 0 {name=p9 sig_type=std_logic lab=vss}
 C {devices/code_shown.sym} -830 -290 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
-.lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
-.lib $::SG13G2_MODELS/cornerRES.lib res_typ
-.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
+.lib $::SG13G2_MODELS/cornerMOSlv.lib tt
+.lib $::SG13G2_MODELS/cornerRES.lib tt
+.lib $::SG13G2_MODELS/cornerCAP.lib tt
 "}
 C {devices/lab_pin.sym} 10 -500 1 0 {name=p13 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} -530 380 0 0 {name=p14 sig_type=std_logic lab=vss}

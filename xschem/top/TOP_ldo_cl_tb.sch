@@ -111,8 +111,8 @@ sim_type=tran
 rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_load.raw
 hilight_wave=0}
 B 2 1265 400 2065 800 {flags=graph,unlocked
-y1=1.1
-y2=1.8
+y1=1.38
+y2=2.08
 ypos1=0
 ypos2=2
 divy=5
@@ -157,9 +157,7 @@ N -40 130 -40 170 {
 lab=#net1}
 N -40 230 -40 250 {
 lab=vss}
-N -580 -80 -560 -80 {
-lab=#net2}
-N -660 -80 -640 -80 {
+N -660 -80 -560 -80 {
 lab=vdd_ldo1}
 N -660 -40 -560 -40 {
 lab=iref_ldo1}
@@ -168,7 +166,7 @@ lab=vcm_ldo1}
 N -520 60 -520 90 {
 lab=vss}
 N -230 40 -190 40 {
-lab=#net3}
+lab=#net2}
 N 50 40 50 110 {
 lab=vout_ldo1}
 N -40 40 50 40 {
@@ -182,13 +180,13 @@ lab=vout_ldo1}
 N 120 170 120 250 {
 lab=vss}
 N -230 -200 -230 40 {
-lab=#net3}
+lab=#net2}
 N -590 -200 -230 -200 {
-lab=#net3}
+lab=#net2}
 N -590 -200 -590 -100 {
-lab=#net3}
+lab=#net2}
 N -590 -100 -560 -100 {
-lab=#net3}
+lab=#net2}
 C {devices/vsource.sym} -480 320 0 0 {name=V1 value=DC\{vcm_ldo1\} savecurrent=false}
 C {devices/vsource.sym} -340 320 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
 C {devices/isource.sym} -580 320 2 0 {name=I0 value=DC\{iref_ldo1\}}
@@ -231,7 +229,6 @@ C {devices/lab_pin.sym} -660 -40 0 0 {name=p17 sig_type=std_logic lab=iref_ldo1}
 C {devices/lab_pin.sym} -480 250 0 0 {name=p18 sig_type=std_logic lab=vcm_ldo1}
 C {devices/lab_pin.sym} -660 -80 0 0 {name=p19 sig_type=std_logic lab=vdd_ldo1}
 C {devices/ammeter.sym} -160 40 3 0 {name=Vmeas savecurrent=true}
-C {devices/ammeter.sym} -610 -80 3 0 {name=Vmeas1 savecurrent=true}
 C {devices/code.sym} -1130 -30 0 0 {name=Load_parameters only_toplevel=false 
 
 value="
@@ -445,4 +442,4 @@ value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 120 250 0 0 {name=p3 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/xschem/TOP.sym} -460 -40 0 0 {name=x1}
+C {/home/ac3e/Documents/ihp_design/xschem/top/TOP.sym} -460 -40 0 0 {name=x1}

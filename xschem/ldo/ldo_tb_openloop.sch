@@ -235,7 +235,6 @@ value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 350 90 0 0 {name=p8 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/xschem/LDO/ldo_openloop.sym} -150 -140 0 0 {name=x2}
 C {devices/lab_pin.sym} -300 -120 0 0 {name=p10 sig_type=std_logic lab=vcm}
 C {devices/launcher.sym} 800 70 0 0 {name=h5
 descr="load waves" 
@@ -262,3 +261,4 @@ C {devices/lab_pin.sym} -120 250 0 0 {name=p11 sig_type=std_logic lab=vdd}
 C {devices/vsource.sym} -250 320 0 0 {name=Vs value="DC\{vin\} AC 1" savecurrent=false}
 C {devices/lab_pin.sym} -250 380 0 0 {name=p13 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -250 250 0 0 {name=p16 sig_type=std_logic lab=vin }
+C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_openloop.sym} -150 -140 0 0 {name=x1}
