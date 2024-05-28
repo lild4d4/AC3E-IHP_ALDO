@@ -12,12 +12,12 @@ simulations/ldo_tb_openloop.spice:
 	xschem --rcfile $(XSCHEMRC) -q ldo_tb_openloop.sch --command="xschem netlist"
 
 .PHONY: xschem_simulate
-xschem_simulate: simulations/ldo_tb_closeloop.spice simulations/ldo_tb_openloop.spice
+xschem_simulate:  
 
-/simulations/ldo_ihp_v3_tb_closeloop_tran.raw:
+/simulations/ldo_ihp_v3_tb_closeloop_tran.raw: simulations/ldo_tb_closeloop.spice
 	cd simulations; \
 	ngspice -b ldo_tb_closeloop.spice
-/simulations/ldo_ihp_v3_tb_openloop_tran.raw:
+/simulations/ldo_ihp_v3_tb_openloop_tran.raw: simulations/ldo_tb_openloop.spice
 	cd simulations; \
 	ngspice -b ldo_tb_openloop.spice
 	
