@@ -21,13 +21,13 @@ authorship {
 paths {
 	root:		..
 	documentation:	doc
-	schematic:	xschem
+	schematic:	xschem/top
 	magic:		mag
 	layout:		gds
 	netlist:	netlist
 	testbench:	cace
 	simulation:	ngspice
-    reports:	reports
+    	reports:	reports
 	plots:		plots
 	logs:		ngspice/log
 }
@@ -194,15 +194,11 @@ electrical_parameters {
 
 		+
 		name: temperature
-		minimum: 0
 		typical: 27
-		maximum: 100
 
 		+
 		name: corner
-		minimum: ss
 		typical: tt
-		maximum: ff
 	}
 	
 	+

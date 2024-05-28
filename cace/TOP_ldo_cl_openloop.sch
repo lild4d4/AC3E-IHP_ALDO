@@ -135,7 +135,6 @@ value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 810 380 0 0 {name=p8 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/xschem/TOP.sym} 160 -260 0 0 {name=x1}
 C {devices/lab_pin.sym} -70 250 0 0 {name=p10 sig_type=std_logic lab=vin}
 C {devices/lab_pin.sym} 180 -390 1 0 {name=p11 sig_type=std_logic lab=pos}
 C {devices/lab_pin.sym} 200 -390 1 0 {name=p16 sig_type=std_logic lab=vdiv
@@ -174,9 +173,9 @@ C {devices/code_shown.sym} -800 -440 0 0 {name=SETUP only_toplevel=false value="
 
 *.include \{DUT_path\}
 
-.lib \{PDK_ROOT\}/\{PDK\}/libs.tech/ngspice/models/cornerMOSlv.lib \{corner\}
-.lib \{PDK_ROOT\}/\{PDK\}/libs.tech/ngspice/models/cornerRES.lib \{corner\}
-.lib \{PDK_ROOT\}/\{PDK\}/libs.tech/ngspice/models/cornerCAP.lib \{corner\}
+.lib \{PDK_ROOT\}/\{PDK\}/libs.tech/ngspice/models/cornerMOSlv.lib mos_\{corner\}
+.lib \{PDK_ROOT\}/\{PDK\}/libs.tech/ngspice/models/cornerRES.lib res_typ
+.lib \{PDK_ROOT\}/\{PDK\}/libs.tech/ngspice/models/cornerCAP.lib cap_typ
 
 .param R=12
 
@@ -199,3 +198,4 @@ C {devices/lab_pin.sym} -510 360 0 0 {name=p26 sig_type=std_logic lab=vdd}
 C {devices/vsource.sym} -410 160 0 0 {name=Vs1 value="0 AC 1" savecurrent=false}
 C {devices/lab_pin.sym} -410 220 0 0 {name=p2 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -410 90 0 0 {name=p5 sig_type=std_logic lab=vin}
+C {/home/ac3e/Documents/ihp_design/xschem/top/TOP.sym} 160 -260 0 0 {name=x1}
