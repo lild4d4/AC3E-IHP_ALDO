@@ -31,7 +31,7 @@ logy=0
 sim_type=tran
 rawfile=$netlist_dir/ldo_ihp_v3_tb_closeloop_tran.raw}
 B 2 350 0 1150 400 {flags=graph,unlocked
-y1=-0.0012
+y1=-0.000101
 y2=2.1
 ypos1=0
 ypos2=2
@@ -68,7 +68,7 @@ divy=5
 subdivy=4
 unity=1
 
-x2=10
+x2=11
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -85,7 +85,7 @@ dataset=-1
 
 y1=-62
 y2=-20
-x1=0}
+x1=1}
 B 2 1270 0 2070 400 {flags=graph,unlocked
 y1=0.0022
 y2=0.12
@@ -94,8 +94,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=0.0001
+x1=5e-06
+x2=0.000105
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -118,8 +118,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-1.5e-05
-x2=8.5e-05
+x1=-1e-05
+x2=9e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -138,7 +138,7 @@ rainbow=0}
 T {Off-Chip Compensation
 } -110 300 3 0 0.4 0.4 {}
 N -580 250 -580 290 {
-lab=iref_ldo1}
+lab=iref}
 N -340 350 -340 380 {
 lab=GND}
 N -480 350 -480 380 {
@@ -148,35 +148,35 @@ lab=vss}
 N -340 250 -340 290 {
 lab=vss}
 N -480 250 -480 290 {
-lab=vcm_ldo1}
+lab=vcm}
 N -130 40 -40 40 {
-lab=vout_ldo1}
+lab=vout}
 N -40 40 -40 70 {
-lab=vout_ldo1}
+lab=vout}
 N -40 130 -40 170 {
 lab=#net1}
 N -40 230 -40 250 {
 lab=vss}
 N -660 -80 -560 -80 {
-lab=vdd_ldo1}
+lab=vdd}
 N -660 -40 -560 -40 {
-lab=iref_ldo1}
+lab=iref}
 N -660 -60 -560 -60 {
-lab=vcm_ldo1}
+lab=vcm}
 N -520 60 -520 90 {
 lab=vss}
 N -230 40 -190 40 {
 lab=#net2}
 N 50 40 50 110 {
-lab=vout_ldo1}
+lab=vout}
 N -40 40 50 40 {
-lab=vout_ldo1}
+lab=vout}
 N 50 170 50 250 {
 lab=vss}
 N 120 40 120 110 {
-lab=vout_ldo1}
+lab=vout}
 N 50 40 120 40 {
-lab=vout_ldo1}
+lab=vout}
 N 120 170 120 250 {
 lab=vss}
 N -230 -200 -230 40 {
@@ -187,9 +187,9 @@ N -590 -200 -590 -100 {
 lab=#net2}
 N -590 -100 -560 -100 {
 lab=#net2}
-C {devices/vsource.sym} -480 320 0 0 {name=V1 value=DC\{vcm_ldo1\} savecurrent=false}
+C {devices/vsource.sym} -480 320 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
 C {devices/vsource.sym} -340 320 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
-C {devices/isource.sym} -580 320 2 0 {name=I0 value=DC\{iref_ldo1\}}
+C {devices/isource.sym} -580 320 2 0 {name=I0 value=DC\{iref\}}
 C {devices/lab_pin.sym} -480 380 0 0 {name=p2 sig_type=std_logic lab=vss}
 C {devices/gnd.sym} -340 380 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -340 250 0 0 {name=p5 sig_type=std_logic lab=vss}
@@ -206,9 +206,9 @@ value="
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 .endif
 "}
-C {devices/lab_pin.sym} -660 -60 0 0 {name=p13 sig_type=std_logic lab=vcm_ldo1}
+C {devices/lab_pin.sym} -660 -60 0 0 {name=p13 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} -580 380 0 0 {name=p14 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 120 40 2 0 {name=p15 sig_type=std_logic lab=vout_ldo1}
+C {devices/lab_pin.sym} 120 40 2 0 {name=p15 sig_type=std_logic lab=vout}
 C {devices/code.sym} -1330 -30 0 0 {name=Simulation_parameters only_toplevel=true
 
 value="
@@ -217,17 +217,17 @@ Vs vdd 0 1.8 AC 1
 .param temp=27
 .save all
 
-.param iref_ldo1 = 5u
+.param iref = 5u
 .param vdd  = 1.8
 .param vss  = 0.0
-.param vcm_ldo1  = 0.9
+.param vcm = 0.9
 .param vac  = 60m
 
 "}
-C {devices/lab_pin.sym} -580 250 0 0 {name=p12 sig_type=std_logic lab=iref_ldo1}
-C {devices/lab_pin.sym} -660 -40 0 0 {name=p17 sig_type=std_logic lab=iref_ldo1}
-C {devices/lab_pin.sym} -480 250 0 0 {name=p18 sig_type=std_logic lab=vcm_ldo1}
-C {devices/lab_pin.sym} -660 -80 0 0 {name=p19 sig_type=std_logic lab=vdd_ldo1}
+C {devices/lab_pin.sym} -580 250 0 0 {name=p12 sig_type=std_logic lab=iref}
+C {devices/lab_pin.sym} -660 -40 0 0 {name=p17 sig_type=std_logic lab=iref}
+C {devices/lab_pin.sym} -480 250 0 0 {name=p18 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} -660 -80 0 0 {name=p19 sig_type=std_logic lab=vdd}
 C {devices/ammeter.sym} -160 40 3 0 {name=Vmeas savecurrent=true}
 C {devices/code.sym} -1130 -30 0 0 {name=Load_parameters only_toplevel=false 
 
