@@ -22,7 +22,7 @@ paths {
 	root:		..
 	documentation:	doc
 	schematic:	xschem/top
-	magic:		mag
+	klayout:	klayout
 	layout:		gds
 	netlist:	netlist
 	testbench:	cace
@@ -403,6 +403,17 @@ physical_parameters {
 	}
 	evaluate {
 		tool: cace_drc_klayout
+	}
+	
+	+
+	name:		LVS_errors
+	description:	LVS errors
+	display:	LVS errors
+	spec {
+		maximum:	0	fail
+	}
+	evaluate {
+		tool:		cace_lvs_klayout
 	}
 }
 
