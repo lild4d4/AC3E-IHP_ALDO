@@ -1,5 +1,9 @@
 *.spice
 *.cir
 *.lyrdb
-**/*.cir
+*.log
 results
+ngspice
+netlst
+gds
+xschem/**/simulations/*

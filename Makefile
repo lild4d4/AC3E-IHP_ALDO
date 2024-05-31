@@ -60,3 +60,13 @@ $(FIG_DIR)/mc_ldo_pm.png: $(CSV_DIR)/mc_ldo_pm.csv $(SCRIPTS_DIR)/MC_ldo_pm.py
 
 $(FIG_DIR)/mc_ldo_olgain.png: $(CSV_DIR)/mc_ldo_olgain.csv $(SCRIPTS_DIR)/MC_ldo_olgain.py
 	python3 $(SCRIPTS_DIR)/MC_ldo_olgain.py $(CSV_DIR)/mc_ldo_olgain.csv $(FIG_DIR)/mc_ldo_olgain.png
+	
+	
+	
+.PHONY: clean
+clean: 
+	rm -d -r simulations/
+	rm -d -r ngspice/
+	rm -d -r netlist/
+	rm -d -r results/
+	rm -d -r gds/
