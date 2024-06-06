@@ -24,3 +24,4 @@ xschem_simulate:
 .PHONY: xschem_open
 xschem_open: /simulations/ldo_ihp_v3_tb_closeloop_tran.raw /simulations/ldo_ihp_v3_tb_openloop_tran.raw
 	xschem --rcfile $(XSCHEMRC) ldo_tb_closeloop.sch ldo_tb_openloop.sch
+	

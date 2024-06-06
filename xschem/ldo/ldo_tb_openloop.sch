@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -71,8 +71,6 @@ N 350 -140 390 -140 {
 lab=vout}
 N 350 -140 350 -50 {
 lab=vout}
-N 280 -140 350 -140 {
-lab=vout}
 N -300 -160 -270 -160 {
 lab=vdd}
 N -300 -120 -270 -120 {
@@ -85,9 +83,7 @@ N -190 110 -130 110 {
 lab=#net2}
 N -130 -80 -130 110 {
 lab=#net2}
-N 280 -140 280 -50 {
-lab=vout}
-N 200 -140 280 -140 {
+N 280 -140 350 -140 {
 lab=vout}
 N -120 350 -120 380 {
 lab=vss}
@@ -97,6 +93,10 @@ N -250 350 -250 380 {
 lab=vss}
 N -250 250 -250 290 {
 lab=vin}
+N 280 -140 280 -50 {
+lab=vout}
+N 200 -140 280 -140 {
+lab=vout}
 C {devices/vsource.sym} 200 320 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
 C {devices/vsource.sym} -20 320 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
 C {devices/isource.sym} 130 320 2 0 {name=I0 value=DC\{iref\}}
@@ -178,7 +178,8 @@ meas ac PM find vp(vout) when vdb(vout)=0
 print PM*180/PI
 meas ac GM find vdb(vout) when vp(vout)=0
 *plot vdb(vout) \{vp(vout)*180/PI\}
-write tb_opamp_openloop_ac.raw
+write ldo_tb_openloop_ac.raw
+wrdata ldo_tb_openloop_ac.csv vdb(vout) \{vp(vout)*180/PI\}
 reset
 op
 
@@ -236,9 +237,9 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 350 90 0 0 {name=p8 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -300 -120 0 0 {name=p10 sig_type=std_logic lab=vcm}
-C {devices/launcher.sym} 800 70 0 0 {name=h5
+C {devices/launcher.sym} 790 70 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_opamp_openloop_ac1.raw ac"
+tclcommand="xschem raw_read $netlist_dir/ldo_tb_openloop_ac.raw ac"
 }
 C {devices/code_shown.sym} -1000 -360 0 0 {name=Simulation_parameters only_toplevel=false 
 

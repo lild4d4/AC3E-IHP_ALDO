@@ -101,24 +101,6 @@ value="
 .param vss  = 0.0
 .param vac  = 60m
 
-.param w857 = 6u
-.param l857 = 2u
-
-.param wpar = 15u
-.param lpar = 2u
-.param mpar = 1
-
-.param w34  = 2u
-.param l34  = 1u
-.param m34  = 1
-
-.param w6   = 20u
-.param l6   = 0.5u
-.param m6   = 1
-
-.param w7   = w857*4
-.param w5   = w857*1
-
 "}
 C {devices/capa.sym} 70 -50 0 0 {name=CL
 m=1
@@ -153,7 +135,7 @@ value="
 C {devices/isource.sym} -160 70 2 0 {name=I0 value=5u}
 C {devices/gnd.sym} -160 130 0 0 {name=l3 lab=GND}
 C {devices/lab_pin.sym} -160 0 0 0 {name=p2 sig_type=std_logic lab=iref}
-C {devices/code.sym} -1230 -10 0 0 {name=MC_PSRR_Simulation only_toplevel=true
+C {devices/code.sym} -1250 0 0 0 {name=MC_PSRR_Simulation only_toplevel=true
 
 value="
 
@@ -162,20 +144,17 @@ pre_osdi /home/ac3e/Documents/psp103_nqs.osdi
 
 let mc_runs = 1000
 let run = 0
-shell rm $HOME_DIR/simulations/csv/mc_ldo_psrr.csv
+shell rm $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_psrr.csv
 ***************** LOOP *********************
 dowhile run < mc_runs
 reset
 set run=$&run
 save all
 ac dec 10 10 10G
-meas ac vnom_at FIND Vc AT=100k 
-let v3db = vnom_at*0.707
-meas ac freq_3dB when Vc=v3db
 
 meas ac DCG find vdb(vout) at=10
 
-print DCG >> $HOME_DIR/simulations/csv/mc_ldo_psrr.csv
+print DCG >> $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_psrr.csv
 let run=run+1 
 end
 ***************** LOOP *********************
@@ -191,8 +170,8 @@ reset
 
 let mc_runs = 1000
 let run = 0
-shell rm $HOME_DIR/simulations/csv/mc_ldo_line_reg.csv
-shell rm $HOME_DIR/simulations/csv/mc_ldo_dropout.csv
+shell rm $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_line_reg.csv
+shell rm $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_dropout.csv
 ***************** LOOP *********************
 dowhile run < mc_runs
 reset
@@ -202,12 +181,12 @@ dc Vs 0 2.1 0.01
 meas dc V_ldo_1.6 FIND v(vout) WHEN v(vdd)=1.6
 meas dc V_ldo_2 FIND v(vout) WHEN v(vdd)=2
 let line_reg=(V_ldo_1.6-V_ldo_2)/0.4
-print line_reg >> $HOME_DIR/simulations/csv/mc_ldo_line_reg.csv
+print line_reg >> $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_line_reg.csv
 
 let der = deriv(vout)
 meas dc V_ldo_vdropout FIND v(vdd) WHEN der=0.02 CROSS=LAST
 let dropout=V_ldo_vdropout-1.2
-print dropout >> $HOME_DIR/simulations/csv/mc_ldo_dropout.csv
+print dropout >> $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_dropout.csv
 
 let run=run+1 
 end
@@ -215,7 +194,7 @@ end
 .endc
 
 "}
-C {devices/code.sym} -1230 180 0 0 {name=MC_Load_Reg_Simulation only_toplevel=true
+C {devices/code.sym} -1230 170 0 0 {name=MC_Load_Reg_Simulation only_toplevel=true
 
 value="
 
@@ -224,7 +203,7 @@ reset
 
 let mc_runs = 1000
 let run = 0
-shell rm $HOME_DIR/simulations/csv/mc_ldo_load_reg.csv
+shell rm $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_load_reg.csv
 ***************** LOOP *********************
 dowhile run < mc_runs
 reset
@@ -237,7 +216,7 @@ meas TRAN V_ldo_100u FIND v(vout) AT=5u
 meas TRAN V_ldo_10m FIND v(vout) AT=100u
 let load_reg=V_ldo_100u-V_ldo_10m
 
-print load_reg/9.9 >> $HOME_DIR/simulations/csv/mc_ldo_load_reg.csv
+print load_reg/9.9 >> $HOME_DIR/xschem/monte_carlo/simulations/mc_ldo_load_reg.csv
 
 
 
@@ -247,10 +226,10 @@ end
 .endc
 
 "}
-C {/home/ac3e/Documents/ihp_design/xschem/LDO/ldo_v3.sym} -250 -210 0 0 {name=x1}
 C {devices/capa.sym} 250 -110 0 0 {name=Cc1
 m=1
 value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 250 0 0 0 {name=p3 sig_type=std_logic lab=vss}
+C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_closeloop.sym} -250 -210 0 0 {name=x1}

@@ -14,14 +14,14 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=1e-06
+x1=1e-07
+x2=1.1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node="vout
-pos
+x1.pos
 vcm
 vdd"
 color="7 8 12 4"
@@ -32,22 +32,22 @@ logy=0
 sim_type=tran
 rawfile=$netlist_dir/ldo_tb_closeloop_tran.raw}
 B 2 560 -250 1360 150 {flags=graph,unlocked
-y1=-0.0012
-y2=2.1
+y1=-0.84168
+y2=1.25952
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 
-x2=2.1
+x2=2.415
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node="vdd
 vcm
-pos
+x1.pos
 vout"
 color="12 8 10 7"
 
@@ -59,7 +59,8 @@ rawfile=$netlist_dir/ldo_tb_closeloop_dc.raw
 
 dataset=0
 rainbow=0
-x1=0}
+x1=0.315
+hilight_wave=3}
 B 2 1360 -650 2160 -250 {flags=graph,unlocked
 
 
@@ -69,7 +70,7 @@ divy=5
 subdivy=4
 unity=1
 
-x2=10.5
+x2=10
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -86,7 +87,7 @@ dataset=-1
 
 y1=-62
 y2=-20
-x1=0.5
+x1=0
 rawfile=$netlist_dir/ldo_tb_closeloop_ac.raw}
 B 2 1360 -250 2160 150 {flags=graph,unlocked
 y1=0.0022
@@ -113,15 +114,15 @@ sim_type=tran
 rawfile=$netlist_dir/ldo_tb_closeloop_load.raw
 hilight_wave=0}
 B 2 1355 150 2155 550 {flags=graph,unlocked
-y1=1.1
-y2=1.8
+y1=1.38
+y2=2.08
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 
-x2=0.0001
+x2=9.5e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -137,7 +138,7 @@ sim_type=tran
 rawfile=$netlist_dir/ldo_tb_closeloop_settime.raw
 digital=0
 rainbow=0
-x1=0}
+x1=-5e-06}
 T {Off-Chip Compensation
 } 120 30 3 0 0.4 0.4 {}
 N -70 180 -70 220 {
@@ -225,14 +226,16 @@ reset
 save all
 set color0 = white
 tran 1n 1u
-plot v(vout) v(pos) v(vcm)
+plot v(vout) v(x1.pos) v(vcm)
 plot i(v.x1.vmeas1)
 print @n.x1.xm1.nsg13_lv_pmos[vgs]
 print @n.x1.xm1.nsg13_lv_pmos[vth]
 print @n.x1.xm1.nsg13_lv_pmos[vgs]-@n.x1.xm1.nsg13_lv_pmos[vth]
 print @n.x1.xm1.nsg13_lv_pmos[vds]
 print @n.x1.xm1.nsg13_lv_pmos[gm]
+wrdata ldo_tb_closeloop_tran.csv v(vout) v(x1.pos) v(vcm) v(vdd)
 write ldo_tb_closeloop_tran.raw
+
 .endc
 
 *.control
@@ -265,6 +268,8 @@ meas dc V_ldo_vdropout FIND v(vdd) WHEN der=0.02 CROSS=LAST
 let dropout = V_ldo_vdropout-1.2
 print dropout
 write ldo_tb_closeloop_dc.raw
+wrdata ldo_tb_closeloop_dc.csv v(vdd) v(vcm) v(x1.pos) v(vout)
+
 .endc
 
 .end
@@ -284,6 +289,7 @@ print PM*180/PI
 meas ac GM find vdb(vout) when vp(vout)=0
 *plot vdb(vout) \{vp(vout)*180/PI\}
 write ldo_tb_closeloop_ac.raw
+wrdata ldo_tb_closeloop_ac.csv vdb(vout) \{vp(vout)*180/PI\}
 
 reset
 op
@@ -345,6 +351,7 @@ let load_current =(-1*i(Vs)-131.8e-6)
 print load_reg
 *plot i(Vmeas) v(vout)-1.2
 write ldo_tb_closeloop_load.raw
+wrdata ldo_tb_closeloop_load.csv i(Vmeas) v(vout)-1.2
 .endc
 
 .end
@@ -362,6 +369,7 @@ alter IL 0
 tran 0.1u 100u
 *plot v(vdd) v(vout)
 write ldo_tb_closeloop_settime.raw
+wrdata ldo_tb_closeloop_settime.csv v(vdd) v(vout)
 .endc
 
 
