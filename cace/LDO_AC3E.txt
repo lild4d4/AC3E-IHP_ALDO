@@ -20,7 +20,7 @@ authorship {
 
 paths {
 	root:		..
-	documentation:	doc
+	documentation:	docs
 	schematic:	xschem/top
 	klayout:	klayout
 	layout:		gds
