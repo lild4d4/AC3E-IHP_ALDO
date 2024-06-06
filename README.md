@@ -27,37 +27,37 @@ The design consist in:
 5. TGATE1: transmission gate for testing.
 6. TGATE2: transmission gate for testing. 
 
-<img align="right" width="250" src="docs/source/fig/LDO_AC3E_designs.png">
+<img width="500" src="docs/source/fig/LDO_AC3E_designs.png">
 
-| Pin Name     | Type         | Description                              |
-| ------------ | ------------ | ---------------------------------------- |
-| Vout_ldo_cl  | Analog       | LDO CL design output            |
-| Vin_ldo_cl   | Power Supply | LDO CL design Input voltage     |
-| Vref_ldo_cl  | Analog       | LDO CL design Voltage reference |
-| ibias_ldo_cl | Analog       | LDO CL design ibias current     |
-| TGATE1_IN    | Analog       | Tgate1 input                             |
-| TGATE2_IN    | Analog       | Tgate2 input                             |
-| TGATE1_EN    | Digital      | Tgate1 enable                            |
-| Vss          | Power Supply | Global Ground                            |
-| TGATE1_OUT   | Analog       | Tgate1 output                            |
-| TGATE2_OUT   | Analog       | Tgate2 output                            |
-| TGATE2_EN    | Digital      | Tgate2 enable                            |
-| TGATE_VDD    | Power Supply | Tgate1 and Tgate2 power supply           |
-| NOT USED     |              |                                          |
-| vdd_ota      | Power Supply | OTA power supply                         |
-| ibias_ota    | Analog       | OTA bias current                         |
-| in_pos_ota   | Analog       | OTA positive input                       |
-| out_ota      | Analog       | OTA output                               |
-| in_neg_ota   | Analog       | OTA negative input                       |
-| Vgate_pt     | Analog       | Pass Transistor Gate                     |
-| Vdrain_pt    | Analog       | Pass Transistor Drain                    |
-| Vss          | Power Supply | Global Ground                            |
-| Vsource_ota  |              | Pass Transistor source                   |
-| vdiv_ldo_ol  | Analog       | LDO OL volage divider output      |
-| pos_ldo_ol   | Analog       | LDO OL positive input             |
-| Vout_ldo_ol  | Analog       | LDO OL output voltage             |
-| ibias_ldo_ol | Analog       | LDO OL bias current               |
-| vref_ldo_ol  | Analog       | LDO OL voltage reference          |
-| Vin_ldo_ol   | Power Supply | LDO OL power supply               |
+Pin Number | Pin Name     | Type         | Description                              |
+|------| ------------ | ------------ | ---------------------------------------- |
+|1| Vout_ldo_cl  | Analog       | LDO CL design output            |
+|2| Vin_ldo_cl   | Power Supply | LDO CL design Input voltage     |
+|3| Vref_ldo_cl  | Analog       | LDO CL design Voltage reference |
+|4| ibias_ldo_cl | Analog       | LDO CL design ibias current     |
+|5| TGATE1_IN    | Analog       | Tgate1 input                             |
+|6| TGATE2_IN    | Analog       | Tgate2 input                             |
+|7| TGATE1_EN    | Digital      | Tgate1 enable                            |
+|8| Vss          | Power Supply | Global Ground                            |
+|9| TGATE1_OUT   | Analog       | Tgate1 output                            |
+|10| TGATE2_OUT   | Analog       | Tgate2 output                            |
+|11| TGATE2_EN    | Digital      | Tgate2 enable                            |
+|12| TGATE_VDD    | Power Supply | Tgate1 and Tgate2 power supply           |
+|13| NOT USED     |              |                                          |
+|14| vdd_ota      | Power Supply | OTA power supply                         |
+|15| ibias_ota    | Analog       | OTA bias current                         |
+|16| in_pos_ota   | Analog       | OTA positive input                       |
+|17| out_ota      | Analog       | OTA output                               |
+|18| in_neg_ota   | Analog       | OTA negative input                       |
+|19| Vgate_pt     | Analog       | Pass Transistor Gate                     |
+|20| Vdrain_pt    | Analog       | Pass Transistor Drain                    |
+|21| Vss          | Power Supply | Global Ground                            |
+|22| Vsource_ota  |              | Pass Transistor source                   |
+|23| vdiv_ldo_ol  | Analog       | LDO OL volage divider output      |
+|24| pos_ldo_ol   | Analog       | LDO OL positive input             |
+|25| Vout_ldo_ol  | Analog       | LDO OL output voltage             |
+|26| ibias_ldo_ol | Analog       | LDO OL bias current               |
+|27| vref_ldo_ol  | Analog       | LDO OL voltage reference          |
+|28| Vin_ldo_ol   | Power Supply | LDO OL power supply               |
 
 

@@ -5,103 +5,126 @@ K {}
 V {}
 S {}
 E {}
-N 290 0 330 0 {
+B 2 1410 -640 2210 -240 {flags=graph
+y1=-170
+y2=180
+ypos1=0
+ypos2=2
+divy=5
+subdivy=4
+unity=1
+x1=0
+x2=10
+divx=5
+subdivx=8
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=1
+logy=0
+color="12 7"
+node="\\"vout db20()\\"
+ph(vout)"}
+N 820 -340 860 -340 {
 lab=vcm}
-N 290 0 290 80 {
+N 820 -340 820 -260 {
 lab=vcm}
-N 370 40 370 80 {
+N 900 -300 900 -260 {
 lab=#net1}
-N 410 20 410 40 {
+N 940 -320 940 -300 {
 lab=vss}
-N 390 -90 390 -70 {
+N 920 -430 920 -410 {
 lab=vdd}
-N 470 -20 520 -20 {
+N 1000 -360 1050 -360 {
 lab=vout}
-N 520 -130 520 -20 {
+N 1050 -470 1050 -360 {
 lab=vout}
-N -220 80 -220 110 {
+N 310 -260 310 -230 {
 lab=GND}
-N -120 80 -120 110 {
+N 410 -260 410 -230 {
 lab=vss}
-N 20 220 20 250 {
+N 550 -120 550 -90 {
 lab=vcm}
-N 290 140 290 170 {
+N 820 -200 820 -170 {
 lab=vss}
-N 370 140 370 170 {
+N 900 -200 900 -170 {
 lab=vss}
-N -30 -40 -15 -40 {
+N 500 -380 515 -380 {
 lab=vcm}
-N 20 70 20 80 {
+N 550 -270 550 -260 {
 lab=vin}
-N 20 140 20 160 {
+N 550 -200 550 -180 {
 lab=vsen}
-N 400 -130 520 -130 {
+N 930 -470 1050 -470 {
 lab=vout}
-N -120 -20 -120 20 {
+N 410 -360 410 -320 {
 lab=vdd}
-N -220 -20 -220 20 {
+N 310 -360 310 -320 {
 lab=vss}
-N 520 90 520 115 {
+N 1050 -250 1050 -225 {
 lab=vss}
-N 80 -130 340 -130 {
+N 610 -470 870 -470 {
 lab=#net2}
-N 80 -130 80 -40 {
+N 610 -470 610 -380 {
 lab=#net2}
-N 50 -40 80 -40 {
+N 580 -380 610 -380 {
 lab=#net2}
-N 80 -40 130 -40 {
+N 610 -380 660 -380 {
 lab=#net2}
-N 180 -40 330 -40 {
+N 710 -380 860 -380 {
 lab=vin}
-N 520 -20 520 30 {
+N 1050 -360 1050 -310 {
 lab=vout}
-C {devices/vsource.sym} 290 110 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
-C {devices/vsource.sym} 20 190 0 0 {name=V2 value="sin(0 \{vac\} 1Meg) dc 0 ac 1" savecurrent=false}
-C {devices/vsource.sym} -120 50 0 0 {name=V4 value="DC \{vdd\}" savecurrent=false}
-C {devices/vsource.sym} -220 50 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
-C {devices/isource.sym} 370 110 2 0 {name=I0 value=DC\{iref\}}
-C {devices/lab_pin.sym} 20 250 0 0 {name=p1 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 290 170 0 0 {name=p2 sig_type=std_logic lab=vss}
-C {devices/gnd.sym} -220 110 0 0 {name=l1 lab=GND}
-C {devices/res.sym} 15 -40 1 0 {name=R1
+C {devices/vsource.sym} 820 -230 0 0 {name=V1 value=DC\{vcm\} savecurrent=false}
+C {devices/vsource.sym} 550 -150 0 0 {name=V2 value="sin(0 \{vac\} 1Meg) dc 0 ac 1" savecurrent=false}
+C {devices/vsource.sym} 410 -290 0 0 {name=V4 value="DC \{vdd\}" savecurrent=false}
+C {devices/vsource.sym} 310 -290 0 0 {name=V5 value=DC\{vss\} savecurrent=false}
+C {devices/isource.sym} 900 -230 2 0 {name=I0 value=DC\{iref\}}
+C {devices/lab_pin.sym} 550 -90 0 0 {name=p1 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} 820 -170 0 0 {name=p2 sig_type=std_logic lab=vss}
+C {devices/gnd.sym} 310 -230 0 0 {name=l1 lab=GND}
+C {devices/res.sym} 545 -380 1 0 {name=R1
 value=500
 footprint=1206
 device=resistor
 m=1}
-C {devices/capa.sym} 20 110 0 0 {name=C2
+C {devices/capa.sym} 550 -230 0 0 {name=C2
 m=1
 value=1
 footprint=1206
 device="ceramic capacitor"}
-C {devices/res.sym} 370 -130 1 0 {name=R2
+C {devices/res.sym} 900 -470 1 0 {name=R2
 value=5k
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_pin.sym} -220 -20 0 0 {name=p5 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} -120 -20 0 0 {name=p6 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 390 -90 0 0 {name=p7 sig_type=std_logic lab=vdd}
-C {devices/lab_pin.sym} 310 0 0 0 {name=p8 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 410 40 2 0 {name=p9 sig_type=std_logic lab=vss}
-C {devices/capa.sym} 520 60 0 0 {name=C3
+C {devices/lab_pin.sym} 310 -360 0 0 {name=p5 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 410 -360 0 0 {name=p6 sig_type=std_logic lab=vdd}
+C {devices/lab_pin.sym} 920 -430 0 0 {name=p7 sig_type=std_logic lab=vdd}
+C {devices/lab_pin.sym} 840 -340 0 0 {name=p8 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} 940 -300 2 0 {name=p9 sig_type=std_logic lab=vss}
+C {devices/capa.sym} 1050 -280 0 0 {name=C3
 m=1
 value=10p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} 520 115 0 0 {name=p10 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 20 150 0 0 {name=p11 sig_type=std_logic lab=vsen}
-C {devices/lab_pin.sym} 300 -40 0 0 {name=p13 sig_type=std_logic lab=vin}
-C {devices/lab_pin.sym} 370 170 0 0 {name=p14 sig_type=std_logic lab=vss}
-C {devices/lab_pin.sym} 520 -20 2 0 {name=p15 sig_type=std_logic lab=vout}
-C {devices/lab_pin.sym} -120 110 0 0 {name=p4 sig_type=std_logic lab=vss}
-C {devices/res.sym} 155 -40 1 0 {name=R3
+C {devices/lab_pin.sym} 1050 -225 0 0 {name=p10 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 550 -190 0 0 {name=p11 sig_type=std_logic lab=vsen}
+C {devices/lab_pin.sym} 830 -380 0 0 {name=p13 sig_type=std_logic lab=vin}
+C {devices/lab_pin.sym} 900 -170 0 0 {name=p14 sig_type=std_logic lab=vss}
+C {devices/lab_pin.sym} 1050 -360 2 0 {name=p15 sig_type=std_logic lab=vout}
+C {devices/lab_pin.sym} 410 -230 0 0 {name=p4 sig_type=std_logic lab=vss}
+C {devices/res.sym} 685 -380 1 0 {name=R3
 value=1G
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_pin.sym} -30 -40 0 0 {name=p12 sig_type=std_logic lab=vcm}
-C {devices/lab_pin.sym} 20 70 0 0 {name=p16 sig_type=std_logic lab=vin}
-C {devices/code.sym} -30 -300 0 0 {name=SIMULATION1 only_toplevel=false 
+C {devices/lab_pin.sym} 500 -380 0 0 {name=p12 sig_type=std_logic lab=vcm}
+C {devices/lab_pin.sym} 550 -270 0 0 {name=p16 sig_type=std_logic lab=vin}
+C {devices/code.sym} -260 -290 0 0 {name=SIMULATION1 only_toplevel=false 
 
 value="
 
@@ -112,48 +135,28 @@ value="
 .param vcm  = 0.9
 .param vac  = 60m
 
-.param w857 = 3u
-.param l857 = 1u
-
-.param wpar = 15u
-.param lpar = 2u
-.param mpar = 1
-
-.param w34  = 2u
-.param l34  = 1u
-.param m34  = 1
-
-.param w6   = 35u
-.param l6   = 0.5u
-.param m6   = 1
-
-.param w7   = w857*4
-.param w5   = w857*1
-
-
-* Include Models
-*.lib ~/skywater/skywater-pdk/libraries/sky130_fd_pr_ngspice/latest/models/corners/sky130.lib TT
-
 * OP Parameters & Singals to save
 .save all
 
 *Simulation
+
 .control
 pre_osdi /home/ac3e/Documents/psp103_nqs.osdi
   set color0 = white
   
-  ac dec 100 1 10G
-  setplot ac1
-  meas ac GBW when vdb(vout)=0
-  meas ac DCG find vdb(vout) at=1
-  meas ac PM find vp(vout) when vdb(vout)=0
-  print PM*180/PI
-  meas ac GM find vdb(vout) when vp(vout)=0
-  plot vdb(vout) \{vp(vout)*180/PI\}
-  write tb_opamp_openloop_ac1.raw
+ac dec 100 1 10G
+setplot ac1
+meas ac GBW when vdb(vout)=0
+meas ac DCG find vdb(vout) at=1
+meas ac PM find vp(vout) when vdb(vout)=0
+print PM*180/PI
+meas ac GM find vdb(vout) when vp(vout)=0
+plot vdb(vout) \{vp(vout)*180/PI\}
+write ota_tb_openloop_ac.raw
+wrdata ota_tb_openloop_ac.csv vdb(vout) \{vp(vout)*180/PI\}
 
-  reset
-  op
+reset
+op
 
 
 print @n.x1.xm8.nsg13_lv_nmos[vgs]-@n.x1.xm8.nsg13_lv_nmos[vth]
@@ -213,7 +216,7 @@ print inoise_total onoise_total
 
 .end
 "}
-C {devices/code_shown.sym} 170 -510 0 0 {name=MODEL1 only_toplevel=true
+C {devices/code_shown.sym} -280 -570 0 0 {name=MODEL1 only_toplevel=true
 format="tcleval( @value )"
 value="
 
@@ -225,4 +228,8 @@ value="
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 .endif
 "}
-C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 390 -20 0 0 {name=x1}
+C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 920 -360 0 0 {name=x1}
+C {devices/launcher.sym} 1480 -110 0 0 {name=h5
+descr="load waves" 
+tclcommand="xschem raw_read $netlist_dir/ota_tb_openloop_ac.raw ac"
+}
