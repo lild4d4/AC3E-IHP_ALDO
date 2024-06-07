@@ -6,10 +6,12 @@ import matplotlib.pyplot as plt
 home_dir = os.environ['HOME_DIR']
 pdk_root = os.environ['PDK_ROOT']
 pdk = os.environ['PDK']
+xschemrc = os.path.join(pdk_root, pdk, 'libs.tech/xschem/xschemrc')
+print(xschemrc)
 sch_dir = os.path.join(home_dir, 'xschem/ldo')
 simulations_path = os.path.join(sch_dir, 'simulations')
 
-sys.path.append('/home/ac3e/Documents/ihp_design/python')
+sys.path.append(home_dir + '/python')
 
 from sim_script import get_netlist, simulate, open_xschem
 from sim_plot import sim_plot
@@ -47,5 +49,5 @@ plt.close()
 
 #open_xschem(pdk_root, pdk, 'ldo_tb_closeloop.sch', 0)
 
-subprocess.run(["xschem", "--rcfile", '/home/ac3e/Documents/IHP-Open-PDK/ihp-sg13g2/libs.tech/xschem/xschemrc', sch_dir+'/ldo_tb_closeloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_closeloop_tran.raw tran']) 
-subprocess.run(["xschem", "--rcfile", '/home/ac3e/Documents/IHP-Open-PDK/ihp-sg13g2/libs.tech/xschem/xschemrc', sch_dir+'/ldo_tb_openloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_openloop_ac.raw ac']) 
+subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ldo_tb_closeloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_closeloop_tran.raw tran'])
+subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ldo_tb_openloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_openloop_ac.raw ac'])

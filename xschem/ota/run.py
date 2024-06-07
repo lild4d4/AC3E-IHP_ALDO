@@ -1,17 +1,19 @@
 import sys
 import os
 import subprocess
+import matplotlib.pyplot as plt
 
 home_dir = os.environ['HOME_DIR']
 pdk_root = os.environ['PDK_ROOT']
 pdk = os.environ['PDK']
+xschemrc = os.path.join(pdk_root, pdk, 'libs.tech/xschem/xschemrc')
 sch_dir = os.path.join(home_dir, 'xschem/ota')
 simulations_path = os.path.join(sch_dir, 'simulations')
 
-sys.path.append('/home/ac3e/Documents/ihp_design/python')
+sys.path.append(home_dir+'/python')
 
 from sim_script import get_netlist, simulate, open_xschem
-from sim_plot import plot
+from sim_plot import sim_plot
 
 if not os.path.exists(simulations_path):
     os.makedirs(simulations_path)
@@ -25,6 +27,10 @@ for sim in simulations:
 	print("Simulating "+sim+" with nspice")
 	simulate(simulations_path, sim+'.spice')
 
-plot(simulations_path+'/ota_tb_openloop_ac.csv', home_dir+'/results/fig', 'vdb(vout) Phase', 'log')
+plt.figure(figsize=(6, 5))
+plt.subplot(1,1,1)
+sim_plot(simulations_path+'/ota_tb_openloop_ac.csv', 'vdb(vout) Phase', 'Frequency (Hz)', 'Gain (dB) & Phase (degrees)','log')
+plt.savefig(home_dir+'/results/fig/ota_tb_openloop_ac.png')
+plt.close()
 
-open_xschem(pdk_root, pdk, 'ota_tb_openloop.sch', 0)
+subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ota_tb_openloop.sch', "--command", 'xschem raw_read simulations/ota_tb_openloop_ac.raw ac'])
