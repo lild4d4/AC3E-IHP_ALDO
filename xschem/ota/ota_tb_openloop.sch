@@ -5,7 +5,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 1410 -640 2210 -240 {flags=graph
+B 2 1400 -430 2200 -30 {flags=graph
 y1=-170
 y2=180
 ypos1=0
@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0
-x2=10
+x1=0.5
+x2=10.5
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -28,6 +28,27 @@ logy=0
 color="12 7"
 node="\\"vout db20()\\"
 ph(vout)"}
+B 2 1400 -870 2200 -470 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=10e-6
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=""
+color=""
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
 N 820 -340 860 -340 {
 lab=vcm}
 N 820 -340 820 -260 {
@@ -205,14 +226,14 @@ noise V(vout) V2 dec 10 10 100e3
 print inoise_total onoise_total 
 .endc
 
-.control
-alter V2 ac 0
-alter v4 ac 1
-tran 1e-6 1e-3
-write test_tran.raw 
-noise V(vout) V4 dec 10 10 100e3
-print inoise_total onoise_total 
-.endc
+*.control
+*alter V2 ac 0
+*alter v4 ac 1
+*tran 1e-6 1e-3
+*write test_tran.raw 
+*noise V(vout) V4 dec 10 10 100e3
+*print inoise_total onoise_total 
+*.endc
 
 .end
 "}
@@ -229,7 +250,7 @@ value="
 .endif
 "}
 C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 920 -360 0 0 {name=x1}
-C {devices/launcher.sym} 1480 -110 0 0 {name=h5
+C {devices/launcher.sym} 1470 100 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/ota_tb_openloop_ac.raw ac"
 }
