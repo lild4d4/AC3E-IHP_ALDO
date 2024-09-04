@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=4
 unity=1
-x1=0.5
-x2=10.5
+x1=0
+x2=10
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -28,27 +28,6 @@ logy=0
 color="12 7"
 node="\\"vout db20()\\"
 ph(vout)"}
-B 2 1400 -870 2200 -470 {flags=graph
-y1=0
-y2=2
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=10e-6
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-node=""
-color=""
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
 N 820 -340 860 -340 {
 lab=vcm}
 N 820 -340 820 -260 {
@@ -145,11 +124,9 @@ device=resistor
 m=1}
 C {devices/lab_pin.sym} 500 -380 0 0 {name=p12 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} 550 -270 0 0 {name=p16 sig_type=std_logic lab=vin}
-C {devices/code.sym} -260 -290 0 0 {name=SIMULATION1 only_toplevel=false 
+C {devices/code.sym} -280 -290 0 0 {name=SIMULATION1 only_toplevel=false 
 
 value="
-
-
 .param iref = 5u
 .param vdd  = 1.8
 .param vss  = 0.0
@@ -157,74 +134,33 @@ value="
 .param vac  = 60m
 
 * OP Parameters & Singals to save
-.save all
+
 
 *Simulation
 
 .control
-pre_osdi /home/ac3e/Documents/psp103_nqs.osdi
-  set color0 = white
-  
+reset
+*pre_osdi /home/ac3e/Documents/psp103_nqs.osdi
+set color0 = white
 ac dec 100 1 10G
+remzerovec
+write ota_tb_openloop_ac.raw
 setplot ac1
 meas ac GBW when vdb(vout)=0
 meas ac DCG find vdb(vout) at=1
 meas ac PM find vp(vout) when vdb(vout)=0
 print PM*180/PI
 meas ac GM find vdb(vout) when vp(vout)=0
-plot vdb(vout) \{vp(vout)*180/PI\}
-write ota_tb_openloop_ac.raw
 wrdata ota_tb_openloop_ac.csv vdb(vout) \{vp(vout)*180/PI\}
 
-reset
-op
-
-
-print @n.x1.xm8.nsg13_lv_nmos[vgs]-@n.x1.xm8.nsg13_lv_nmos[vth]
-print @n.x1.xm8.nsg13_lv_nmos[vds]
-
-print @n.x1.XM7.nsg13_lv_nmos[vgs]-@n.x1.XM7.nsg13_lv_nmos[vth]
-print @n.x1.XM7.nsg13_lv_nmos[vds]
-print @n.x1.XM7.nsg13_lv_nmos[ids]
-
-print @n.x1.xm6.nsg13_lv_pmos[vgs]-@n.x1.xm6.nsg13_lv_pmos[vth]
-print @n.x1.xm6.nsg13_lv_pmos[vds]
-print @n.x1.xm6.nsg13_lv_pmos[gm]
-print @n.x1.xm6.nsg13_lv_pmos[gm]/@n.x1.xm6.nsg13_lv_pmos[ids]
-  
-print @n.x1.xm5.nsg13_lv_nmos[vgs]-@n.x1.xm5.nsg13_lv_nmos[vth]
-print @n.x1.xm5.nsg13_lv_nmos[vds]
-print @n.x1.xm5.nsg13_lv_nmos[ids]
-
-print @n.x1.xm1.nsg13_lv_nmos[vgs]-@n.x1.xm1.nsg13_lv_nmos[vth]
-print @n.x1.xm1.nsg13_lv_nmos[vds]
-print @n.x1.xm1.nsg13_lv_nmos[gm]
-print @n.x1.xm1.nsg13_lv_nmos[gm]/@n.x1.xm1.nsg13_lv_nmos[ids]
-
-print @n.x1.xm2.nsg13_lv_nmos[vgs]-@n.x1.xm2.nsg13_lv_nmos[vth]
-print @n.x1.xm2.nsg13_lv_nmos[vds]
-print @n.x1.xm2.nsg13_lv_nmos[gm]
-
-print @n.x1.xm3.nsg13_lv_pmos[vgs]-@n.x1.xm3.nsg13_lv_pmos[vth]
-print @n.x1.xm3.nsg13_lv_pmos[vds]
-print @n.x1.xm3.nsg13_lv_pmos[ids]
-
-print @n.x1.xm4.nsg13_lv_pmos[vgs]-@n.x1.xm4.nsg13_lv_pmos[vth]
-print @n.x1.xm4.nsg13_lv_pmos[vds]
-print @n.x1.xm4.nsg13_lv_pmos[ids]
-
-  setplot op1
-  unset filetype
-  write tb_opamp_openloop.raw
-
 .endc
 
-.control
-tran 1e-6 1e-3
-write test_tran.raw 
-noise V(vout) V2 dec 10 10 100e3
-print inoise_total onoise_total 
-.endc
+*.control
+*tran 1e-6 1e-3
+*write test_tran.raw 
+*noise V(vout) V2 dec 10 10 100e3
+*print inoise_total onoise_total 
+*.endc
 
 *.control
 *alter V2 ac 0
@@ -249,8 +185,8 @@ value="
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 .endif
 "}
-C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 920 -360 0 0 {name=x1}
 C {devices/launcher.sym} 1470 100 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/ota_tb_openloop_ac.raw ac"
 }
+C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ota/ota.sym} 920 -360 0 0 {name=x1}

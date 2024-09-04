@@ -14,8 +14,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-07
-x2=1.1e-06
+x1=0
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -32,15 +32,15 @@ logy=0
 sim_type=tran
 rawfile=$netlist_dir/ldo_tb_closeloop_tran.raw}
 B 2 560 -250 1360 150 {flags=graph,unlocked
-y1=-0.84168
-y2=1.25952
+y1=0.41904
+y2=2.52024
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
 
-x2=2.415
+x2=2.1
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -59,7 +59,7 @@ rawfile=$netlist_dir/ldo_tb_closeloop_dc.raw
 
 dataset=0
 rainbow=0
-x1=0.315
+x1=0
 hilight_wave=3}
 B 2 1360 -650 2160 -250 {flags=graph,unlocked
 
@@ -122,7 +122,7 @@ divy=5
 subdivy=1
 unity=1
 
-x2=9.5e-05
+x2=0.0001
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -138,7 +138,7 @@ sim_type=tran
 rawfile=$netlist_dir/ldo_tb_closeloop_settime.raw
 digital=0
 rainbow=0
-x1=-5e-06}
+x1=0}
 T {Off-Chip Compensation
 } 120 30 3 0 0.4 0.4 {}
 N -70 180 -70 220 {
@@ -203,10 +203,6 @@ value="
 .lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
 .lib $::SG13G2_MODELS/cornerRES.lib res_typ
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
-
-.control
-pre_osdi /home/ac3e/Documents/ihp_design/psp103_nqs.osdi
-.endc
 "}
 C {devices/lab_pin.sym} -350 -210 0 0 {name=p13 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} -70 310 0 0 {name=p14 sig_type=std_logic lab=vss}
@@ -281,6 +277,7 @@ value="
 .control
 reset
 ac dec 100 1 10G
+remzerovec
 setplot ac1
 meas ac GBW when vdb(vout)=0
 meas ac DCG find vdb(vout) at=1
@@ -377,7 +374,7 @@ wrdata ldo_tb_closeloop_settime.csv v(vdd) v(vout)
 "}
 C {devices/capa.sym} 190 -70 0 0 {name=Cc
 m=1
-value=1u
+value=10u
 footprint=1206
 device="ceramic capacitor"}
 C {devices/res.sym} 190 -170 0 0 {name=Resr
@@ -434,4 +431,4 @@ value="
 C {devices/vsource.sym} -250 250 0 0 {name=Vs value="DC\{vdd\} AC 1" savecurrent=false}
 C {devices/lab_pin.sym} -250 310 0 0 {name=p6 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -250 180 0 0 {name=p7 sig_type=std_logic lab=vdd}
-C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_closeloop.sym} -130 -230 0 0 {name=x1}
+C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ldo/ldo_closeloop.sym} -130 -230 0 0 {name=x1}
