@@ -1,10 +1,9 @@
-Welcome to IHP_OpenPDK_ALDO_exampleDesign documentation!
+Welcome to AC3E-IHP_ALDO documentation!
 ===================================
-**! Please note that this documentation is still a work in progress !**
 
 .. note::
 
-    This project is intended to be a template for futures work related to IHP-OpenPDK  technology tapeouts. For more information about the PDK please refer to the `official repository <https://github.com/IHP-GmbH/IHP-Open-PDK>`_.
+    This project is the result of a collaboration between the Advanced Center for Electrical and Electronic Engeneering (`AC3E <https://ac3e.usm.cl/index/>`_) and the Leibniz Institute for High Performance Microelectronics (`IHP <https://www.ihp-microelectronics.com>`_), intended to be a template for futures work related to IHP-OpenPDK technology tapeouts. For more information about the PDK please refer to the `official repository <https://github.com/IHP-GmbH/IHP-Open-PDK>`_.
 
 Introduction
 ------------

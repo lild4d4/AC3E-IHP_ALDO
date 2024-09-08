@@ -1,6 +1,6 @@
-# LDO - Design example for IHP - Open Source PDK.
+# AC3E-IHP_ALDO - Design example for IHP - Open Source PDK.
 
-> © Daniel Arevalos, Innovations for High Performance Microelectronics (IHP).
+> © Daniel Arevalos, Advanced Center for Electrical and Electronic Engineering (AC3E), Innovations for High Performance Microelectronics (IHP).
 
 This is a design made as an example for the IHP-Open-PDK technology.
 
