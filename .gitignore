@@ -7,3 +7,6 @@ ngspice
 netlst
 gds
 xschem/**/simulations/*
+docs/build
+python/**/__pycache__
+python/layout_scripting/__pycache__/cont.cpython-310.pyc

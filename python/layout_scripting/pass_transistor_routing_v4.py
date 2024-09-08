@@ -1,4 +1,4 @@
-import pya
+# import pya
 import sys
 
 sys.path.append("./")
@@ -63,10 +63,7 @@ def source_connection(
     for j in range(int(gates_num / 2) + 1):
         x0_0 = x0 + j * (length + difusion_hsp) * 2
         src_path = pya.Box(
-            x0_0,
-            y0,
-            x0_0 + 300,
-            y0 + tran_w + 220 + 2820 + path_width + h_path_width + 180,
+            x0_0, y0, x0_0 + 300, y0 + 220 + 2820 + path_width + h_path_width + 180
         )
         m1_path = pya.Box(x0_0, y0, x0_0 + 300, y0 + tran_w)
         cell.shapes(m2_layer).insert(src_path)
@@ -75,21 +72,22 @@ def source_connection(
             cell,
             via2_layer,
             x0_0 + (300 - 190) / 2,
-            y0 + tran_w + path_width + 220 + h_path_sep_width + (300 - 190) / 2,
-            66,
+            y0 + path_width + 220 + h_path_sep_width + (300 - 190) / 2,
+            24,
             1,
             220,
             190,
         )
         via1_array(cell, via1_layer, x0_0 + (300 - 190) / 2, y0 + 50, 38, 1, 220, 190)
 
+    # src_hpath = pya.Box(x0, y0+tran_w+path_width+220+h_path_sep_width, x0+(gates_num)*(length)+(gates_num)*difusion_hsp+300, y0+tran_w+path_width+220+h_path_sep_width+h_path_width)
     src_hpath = pya.Box(
         x0,
-        y0 + tran_w + path_width + 220 + h_path_sep_width,
+        y0 + path_width + 220 + h_path_sep_width,
         x0 + (gates_num) * (length) + (gates_num) * difusion_hsp + 300,
-        y0 + tran_w + path_width + 220 + h_path_sep_width + h_path_width,
+        y0 + path_width + 220 + h_path_sep_width + h_path_width,
     )
-    cell.shapes(m3_layer).insert(src_hpath)
+    cell.shapes(topm1_layer).insert(src_hpath)
 
 
 def drain_connection(cell, layout, x0, y0, length, gates_num, difusion_hsp, path_width):
@@ -99,7 +97,7 @@ def drain_connection(cell, layout, x0, y0, length, gates_num, difusion_hsp, path
             x0_0,
             y0,
             x0_0 + 300,
-            y0 + tran_w + 220 + path_width + 2 * h_path_width + 2 * h_path_sep_width,
+            y0 + 220 + path_width + 2 * h_path_width + 2 * h_path_sep_width,
         )
         m1_path = pya.Box(x0_0, y0, x0_0 + 300, y0 + tran_w)
         cell.shapes(layer).insert(m1_path)
@@ -109,13 +107,12 @@ def drain_connection(cell, layout, x0, y0, length, gates_num, difusion_hsp, path
             via2_layer,
             x0_0 + (300 - 190) / 2,
             y0
-            + tran_w
             + path_width
             + 220
             + 2 * h_path_sep_width
             + h_path_width
             + (300 - 190) / 2,
-            66,
+            24,
             1,
             220,
             190,
@@ -124,16 +121,16 @@ def drain_connection(cell, layout, x0, y0, length, gates_num, difusion_hsp, path
 
     src_hpath = pya.Box(
         x0 + (length + difusion_hsp),
-        y0 + tran_w + path_width + 220 + 2 * h_path_sep_width + h_path_width,
+        y0 + path_width + 220 + 2 * h_path_sep_width + h_path_width,
         x0
         + (gates_num - 2) * (length)
         + (gates_num - 1) * difusion_hsp
         + length
         + difusion_hsp
         - 80,
-        y0 + tran_w + path_width + 220 + 2 * h_path_sep_width + 2 * h_path_width,
+        y0 + path_width + 220 + 2 * h_path_sep_width + 2 * h_path_width,
     )
-    cell.shapes(m3_layer).insert(src_hpath)
+    cell.shapes(topm1_layer).insert(src_hpath)
 
 
 def source_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
@@ -143,7 +140,8 @@ def source_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         x0 - v_path_width - v_path_sep_width,
         y0 + h_path_sep_width + h_path_width,
     )
-    cell.shapes(m3_layer).insert(box)
+    # cell.shapes(m3_layer).insert(box)
+    cell.shapes(topm1_layer).insert(box)
     box_m4 = pya.Box(
         x0 - v_path_sep_width,
         y0 + h_path_sep_width,
@@ -159,7 +157,7 @@ def source_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         via3_layer,
         x0 - v_path_sep_width - v_path_width + (300 - 190) / 2,
         y0 + h_path_sep_width + (300 - 190) / 2,
-        57,
+        21,
         21,
         290,
         190,
@@ -169,7 +167,7 @@ def source_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         via4_layer,
         x0 - v_path_sep_width - v_path_width + (300 - 190) / 2,
         y0 + h_path_sep_width + (300 - 190) / 2,
-        57,
+        21,
         21,
         290,
         190,
@@ -179,7 +177,7 @@ def source_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         topvia1_layer,
         x0 - v_path_sep_width - v_path_width + 100,
         y0 + h_path_sep_width + 100,
-        33,
+        12,
         12,
         420,
         420,
@@ -207,7 +205,7 @@ def drain_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         x0 + path_length + v_path_sep_width + v_path_width,
         y0 + 2 * h_path_sep_width + 2 * h_path_width,
     )
-    cell.shapes(m3_layer).insert(box_drt)
+    cell.shapes(topm1_layer).insert(box_drt)
     box_m4 = pya.Box(
         x0 + path_length + v_path_sep_width,
         y0 + 2 * h_path_sep_width + h_path_width,
@@ -222,7 +220,7 @@ def drain_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         via3_layer,
         x0 + path_length + h_path_sep_width + 300 + (300 - 190) / 2 - 300,
         y0 + 2 * v_path_sep_width + h_path_width + (300 - 190) / 2,
-        57,
+        21,
         21,
         290,
         190,
@@ -232,7 +230,7 @@ def drain_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         via4_layer,
         x0 + path_length + h_path_sep_width + 300 + (300 - 190) / 2 - 300,
         y0 + 2 * v_path_sep_width + h_path_width + (300 - 190) / 2,
-        57,
+        21,
         21,
         290,
         190,
@@ -242,7 +240,7 @@ def drain_tranarray_interconn(x0, y0, path_length, tran_num_row, i):
         topvia1_layer,
         x0 + path_length + h_path_sep_width + 100,
         y0 + 2 * v_path_sep_width + h_path_width + 100,
-        33,
+        12,
         12,
         420,
         420,
@@ -347,8 +345,8 @@ def guard_ring(cell, layout, x0, y0, width, hight, path_width):
     cell.shapes(nwell).insert(box_nwell)
 
 
-layout = pya.Layout()
-layout.read("../../klayout/pass_transistor_routing_test.gds")
+layout = klayout.db.Layout()
+layout.read("../../klayout/gds/pass_transistor_routing_test.gds")
 
 x0, y0 = [0, 0]  # reference
 path_width = 600  # length of the paths
@@ -357,10 +355,10 @@ gates_num = 125  # number of gates
 difusion_hsp = 380
 length = 500
 
-tran_vsp = 81120
+tran_vsp = 30120
 tran_w = 16000
 
-h_path_width = 27500
+h_path_width = 10000
 v_path_width = 10000
 h_path_sep_width = 3000
 v_path_sep_width = 3000
@@ -404,14 +402,14 @@ for i in range(tran_num_row):
     )
     source_tranarray_interconn(
         x0,
-        y0 + tran_w + path_width + 220 + i * tran_vsp,
+        y0 + path_width + 220 + i * tran_vsp,
         (gates_num) * (length) + (gates_num) * difusion_hsp + 300,
         tran_num_row,
         i,
     )
     drain_tranarray_interconn(
         x0 + length + difusion_hsp,
-        y0 + tran_w + path_width + 220 + i * tran_vsp,
+        y0 + path_width + 220 + i * tran_vsp,
         (gates_num - 2) * (length) + (gates_num - 1) * difusion_hsp - 80,
         tran_num_row,
         i,
