@@ -7,14 +7,14 @@ S {}
 E {}
 B 2 740 -370 1540 30 {flags=graph
 y1=-180
-y2=180
+y2=200
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0.5
-x2=10.5
+x1=0
+x2=10
 divx=5
 subdivx=8
 xlabmag=1.0
@@ -110,10 +110,6 @@ value="
 .lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
 .lib $::SG13G2_MODELS/cornerRES.lib res_typ
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
-
-.control
-pre_osdi /home/ac3e/Documents/psp103_nqs.osdi
-.endc
 "}
 C {devices/lab_pin.sym} 130 380 0 0 {name=p14 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 390 -140 2 0 {name=p15 sig_type=std_logic lab=vout}
@@ -171,13 +167,14 @@ value="
 .control
 reset
 ac dec 100 1 10G
+remzerovec
 setplot ac1
 meas ac GBW when vdb(vout)=0
 meas ac DCG find vdb(vout) at=1
 meas ac PM find vp(vout) when vdb(vout)=0
 print PM*180/PI
 meas ac GM find vdb(vout) when vp(vout)=0
-*plot vdb(vout) \{vp(vout)*180/PI\}
+plot vdb(vout) \{vp(vout)*180/PI\}
 write ldo_tb_openloop_ac.raw
 wrdata ldo_tb_openloop_ac.csv vdb(vout) \{vp(vout)*180/PI\}
 reset
@@ -241,9 +238,11 @@ C {devices/launcher.sym} 790 70 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/ldo_tb_openloop_ac.raw ac"
 }
-C {devices/code_shown.sym} -1000 -360 0 0 {name=Simulation_parameters only_toplevel=false 
+C {devices/code_shown.sym} -1000 -400 0 0 {name=Simulation_parameters only_toplevel=false 
 
 value="
+.param temp=27
+
 .param vin = 0
 .param iref = 5u
 .param vdd  = 1.8
@@ -254,7 +253,7 @@ value="
 C {devices/code_shown.sym} -1000 -180 0 0 {name=Load_parameters only_toplevel=false 
 
 value="
-.param R=12
+.param R=1200
 "}
 C {devices/vsource.sym} -120 320 0 0 {name=V6 value="DC\{vdd\}" savecurrent=false}
 C {devices/lab_pin.sym} -120 380 0 0 {name=p7 sig_type=std_logic lab=vss}
@@ -262,4 +261,4 @@ C {devices/lab_pin.sym} -120 250 0 0 {name=p11 sig_type=std_logic lab=vdd}
 C {devices/vsource.sym} -250 320 0 0 {name=Vs value="DC\{vin\} AC 1" savecurrent=false}
 C {devices/lab_pin.sym} -250 380 0 0 {name=p13 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -250 250 0 0 {name=p16 sig_type=std_logic lab=vin }
-C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_openloop.sym} -150 -140 0 0 {name=x1}
+C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ldo/ldo_openloop.sym} -150 -140 0 0 {name=x1}

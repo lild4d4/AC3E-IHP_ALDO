@@ -46,8 +46,8 @@ lab=ldo_in}
 C {devices/lab_pin.sym} -150 -40 2 0 {name=p9 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -300 -120 0 0 {name=p13 sig_type=std_logic lab=vref}
 C {sg13g2_pr/sg13_lv_pmos.sym} 80 -100 0 0 {name=M1
-L=0.5u
-W=8000.0u
+l=0.5u
+w=8000.0u
 ng=1
 m=1
 model=sg13_lv_pmos
@@ -58,8 +58,8 @@ C {devices/lab_pin.sym} -170 -220 0 0 {name=p19 sig_type=std_logic lab=ldo_in}
 C {devices/lab_pin.sym} -300 -80 0 0 {name=p1 sig_type=std_logic lab=pos}
 C {devices/lab_pin.sym} 100 190 0 0 {name=p3 sig_type=std_logic lab=vss}
 C {sg13g2_pr/rhigh.sym} 100 140 0 0 {name=R2
-W=0.5e-6
-L=30e-6
+w=0.5e-6
+l=30e-6
 model=rhigh
 spiceprefix=X
 m=1
@@ -67,8 +67,8 @@ R=1360.0
 Imax=0.3e-6
 }
 C {sg13g2_pr/rhigh.sym} 100 60 0 0 {name=R1
-W=0.5e-6
-L=10e-6
+w=0.5e-6
+l=10e-6
 model=rhigh
 spiceprefix=X
 m=1
@@ -82,4 +82,4 @@ C {devices/lab_pin.sym} 170 -20 2 0 {name=p8 sig_type=std_logic lab=ldo_out}
 C {devices/ipin.sym} -520 -190 0 0 {name=p10 lab=iref}
 C {devices/ipin.sym} -520 -170 0 0 {name=p11 lab=vref}
 C {devices/lab_pin.sym} -10 -100 1 0 {name=p4 sig_type=std_logic lab=vota}
-C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} -170 -100 0 0 {name=x1}
+C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ota/ota.sym} -170 -100 0 0 {name=x1}

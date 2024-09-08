@@ -136,48 +136,48 @@ lab=#net3}
 N 530 -70 610 -70 {
 lab=vout}
 C {sg13g2_pr/sg13_lv_nmos.sym} -130 0 2 1 {name=M1
-L=2u
-W=15u
+l=2u
+w=15u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 140 0 2 0 {name=M2
-L=2u
-W=15u
+l=2u
+w=15u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 100 -190 0 0 {name=M3
-L=1u
-W=2u
+l=1u
+w=2u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} -90 -190 0 1 {name=M4
-L=1u
-W=2u
+l=1u
+w=2u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -10 130 2 1 {name=M5
-L=2u
-W=6u
+l=2u
+w=6u
 ng=1
 m=1
 model=sg13_lv_nmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} -380 130 2 0 {name=M8
-L=2u
-W=6u
+l=2u
+w=6u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -193,16 +193,16 @@ C {devices/iopin.sym} 10 -290 3 0 {name=p4 lab=vdd}
 C {devices/iopin.sym} 10 230 1 0 {name=p5 lab=vss}
 C {devices/lab_pin.sym} -200 130 0 0 {name=p7 sig_type=std_logic lab=iref}
 C {sg13g2_pr/sg13_lv_pmos.sym} 510 -130 0 0 {name=M6
-L=0.5u
-W=20u
+l=0.5u
+w=20u
 ng=1
 m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_nmos.sym} 510 130 2 1 {name=M7
-L=2u
-W=24u
+l=2u
+w=24u
 ng=1
 m=1
 model=sg13_lv_nmos
@@ -211,12 +211,12 @@ spiceprefix=X
 C {devices/lab_pin.sym} 400 130 0 0 {name=p6 sig_type=std_logic lab=iref}
 C {devices/opin.sym} 610 -70 0 0 {name=p8 lab=vout}
 C {sg13g2_pr/rhigh.sym} 380 -70 1 0 {name=R2
-W=0.5e-6
-L=10e-6
+w=0.5e-6
+l=10e-6
 model=rhigh
 spiceprefix=X
 m=1
 R=1360.0
 Imax=0.3e-6
 }
-C {sg13g2_pr/cap_cmim.sym} 460 -70 1 0 {name=C2 model=cap_cmim W=45.0e-6 L=45.0e-6 MF=1 spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 460 -70 3 0 {name=C2 model=cap_cmim w=45.0e-6 l=45.0e-6 MF=1 spiceprefix=X}
