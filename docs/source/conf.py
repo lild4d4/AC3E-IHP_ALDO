@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = "ALDO_exampleDesign"
+project = "AC3E-IHP_ALDO"
 copyright = "2024, IHP"
 author = "Daniel Arevalos"
 
