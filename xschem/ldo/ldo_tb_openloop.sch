@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 740 -370 1540 30 {flags=graph
 y1=-180
@@ -261,4 +261,4 @@ C {devices/lab_pin.sym} -120 250 0 0 {name=p11 sig_type=std_logic lab=vdd}
 C {devices/vsource.sym} -250 320 0 0 {name=Vs value="DC\{vin\} AC 1" savecurrent=false}
 C {devices/lab_pin.sym} -250 380 0 0 {name=p13 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -250 250 0 0 {name=p16 sig_type=std_logic lab=vin }
-C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ldo/ldo_openloop.sym} -150 -140 0 0 {name=x1}
+C {ldo_openloop.sym} -150 -140 0 0 {name=x1}

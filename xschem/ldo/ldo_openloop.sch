@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N 280 -50 280 -20 {
 lab=vss}
@@ -81,4 +81,4 @@ C {devices/iopin.sym} 260 -170 3 0 {name=p6 lab=ldo_in}
 C {devices/iopin.sym} 560 200 1 0 {name=p7 lab=vss}
 C {devices/ipin.sym} 180 -110 0 0 {name=p2 lab=vref
 }
-C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ota/ota.sym} 260 -90 0 0 {name=x1}
+C {../ota/ota.sym} 260 -90 0 0 {name=x1}

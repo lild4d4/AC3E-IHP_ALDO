@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N -150 -60 -150 -40 {
 lab=vss}
@@ -82,4 +82,4 @@ C {devices/lab_pin.sym} 170 -20 2 0 {name=p8 sig_type=std_logic lab=ldo_out}
 C {devices/ipin.sym} -520 -190 0 0 {name=p10 lab=iref}
 C {devices/ipin.sym} -520 -170 0 0 {name=p11 lab=vref}
 C {devices/lab_pin.sym} -10 -100 1 0 {name=p4 sig_type=std_logic lab=vota}
-C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ota/ota.sym} -170 -100 0 0 {name=x1}
+C {../ota/ota.sym} -170 -100 0 0 {name=x1}

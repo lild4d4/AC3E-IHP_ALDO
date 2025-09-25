@@ -1,10 +1,10 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {
 }
+F {}
 E {}
 B 2 560 -650 1360 -250 {flags=graph,unlocked
 y1=0.9
@@ -59,7 +59,7 @@ rawfile=$netlist_dir/ldo_tb_closeloop_dc.raw
 
 dataset=0
 rainbow=0
-x1=0
+x1=-1.3877788e-17
 hilight_wave=3}
 B 2 1360 -650 2160 -250 {flags=graph,unlocked
 
@@ -114,8 +114,8 @@ sim_type=tran
 rawfile=$netlist_dir/ldo_tb_closeloop_load.raw
 hilight_wave=0}
 B 2 1355 150 2155 550 {flags=graph,unlocked
-y1=1.38
-y2=2.08
+y1=1.52
+y2=2.22
 ypos1=0
 ypos2=2
 divy=5
@@ -431,4 +431,4 @@ value="
 C {devices/vsource.sym} -250 250 0 0 {name=Vs value="DC\{vdd\} AC 1" savecurrent=false}
 C {devices/lab_pin.sym} -250 310 0 0 {name=p6 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} -250 180 0 0 {name=p7 sig_type=std_logic lab=vdd}
-C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ldo/ldo_closeloop.sym} -130 -230 0 0 {name=x1}
+C {ldo_closeloop.sym} -130 -230 0 0 {name=x1}

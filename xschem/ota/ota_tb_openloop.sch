@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 1400 -430 2200 -30 {flags=graph
 y1=-170
@@ -189,4 +189,4 @@ C {devices/launcher.sym} 1470 100 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/ota_tb_openloop_ac.raw ac"
 }
-C {/workspaces/usm-vlsi-tools/shared_xserver/ihp_design/xschem/ota/ota.sym} 920 -360 0 0 {name=x1}
+C {ota.sym} 920 -360 0 0 {name=x1}
