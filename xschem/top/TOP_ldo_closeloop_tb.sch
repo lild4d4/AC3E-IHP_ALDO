@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 350 -400 1150 0 {flags=graph,unlocked
 y1=1.44
@@ -442,4 +442,4 @@ value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 120 250 0 0 {name=p3 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/xschem/top/TOP.sym} -460 -40 0 0 {name=x1}
+C {TOP.sym} -460 -40 0 0 {name=x1}

@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {Off-Chip resistanace} 470 290 3 0 0.4 0.4 {}
 N -530 250 -530 290 {
@@ -80,9 +80,9 @@ C {devices/lab_pin.sym} -10 -230 2 0 {name=p9 sig_type=std_logic lab=vss}
 C {devices/code_shown.sym} -830 -290 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value="
-.lib $::SG13G2_MODELS/cornerMOSlv.lib tt
-.lib $::SG13G2_MODELS/cornerRES.lib tt
-.lib $::SG13G2_MODELS/cornerCAP.lib tt
+.lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
+.lib $::SG13G2_MODELS/cornerRES.lib res_typ
+.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
 "}
 C {devices/lab_pin.sym} 10 -500 1 0 {name=p13 sig_type=std_logic lab=vcm}
 C {devices/lab_pin.sym} -530 380 0 0 {name=p14 sig_type=std_logic lab=vss}
@@ -260,7 +260,7 @@ value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 700 270 0 0 {name=p8 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/xschem/TOP.sym} 50 -370 0 0 {name=x1}
+C {TOP.sym} 50 -370 0 0 {name=x1}
 C {devices/lab_pin.sym} -180 140 0 0 {name=p10 sig_type=std_logic lab=vin}
 C {devices/lab_pin.sym} 70 -500 1 0 {name=p11 sig_type=std_logic lab=pos}
 C {devices/lab_pin.sym} 90 -500 1 0 {name=p16 sig_type=std_logic lab=vdiv

@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 N -470 -160 -450 -160 {
 lab=2}
@@ -146,7 +146,7 @@ C {devices/lab_pin.sym} -540 120 0 0 {name=p58 sig_type=std_logic lab=5
 }
 C {devices/lab_pin.sym} 40 200 0 0 {name=p59 sig_type=std_logic lab=8
 }
-C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_closeloop.sym} -330 -140 0 0 {name=x1}
-C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_openloop.sym} 130 -140 0 0 {name=x2}
-C {/home/ac3e/Documents/ihp_design/xschem/pass_transistor/pass_transistor.sym} 480 -140 0 0 {name=x3}
-C {/home/ac3e/Documents/ihp_design/xschem/ota/ota.sym} 470 110 0 0 {name=x4}
+C {../ldo/ldo_closeloop.sym} -330 -140 0 0 {name=x1}
+C {../ldo/ldo_openloop.sym} 130 -140 0 0 {name=x2}
+C {../pass_transistor/pass_transistor.sym} 480 -140 0 0 {name=x3}
+C {../ota/ota.sym} 470 110 0 0 {name=x4}
