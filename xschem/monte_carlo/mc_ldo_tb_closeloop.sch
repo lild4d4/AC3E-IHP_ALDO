@@ -1,9 +1,9 @@
-v {xschem version=3.4.5 file_version=1.2
-}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 T {Off-Chip resistanace} -10 20 3 0 0.4 0.4 {}
 N -270 100 -270 130 {
@@ -232,4 +232,4 @@ value=50p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} 250 0 0 0 {name=p3 sig_type=std_logic lab=vss}
-C {/home/ac3e/Documents/ihp_design/xschem/ldo/ldo_closeloop.sym} -250 -210 0 0 {name=x1}
+C {../ldo/ldo_closeloop.sym} -250 -210 0 0 {name=x1}
