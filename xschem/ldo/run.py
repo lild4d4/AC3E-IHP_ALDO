@@ -2,10 +2,14 @@ import sys
 import os
 import subprocess
 import matplotlib.pyplot as plt
+import pathlib
 
 home_dir = os.environ['HOME_DIR']
 pdk_root = os.environ['PDK_ROOT']
 pdk = os.environ['PDK']
+
+pathlib.Path(home_dir+'/results/fig').mkdir(parents=True, exist_ok=True) 
+
 xschemrc = os.path.join(pdk_root, pdk, 'libs.tech/xschem/xschemrc')
 print(xschemrc)
 sch_dir = os.path.join(home_dir, 'xschem/ldo')
@@ -49,5 +53,5 @@ plt.close()
 
 #open_xschem(pdk_root, pdk, 'ldo_tb_closeloop.sch', 0)
 
-subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ldo_tb_closeloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_closeloop_tran.raw tran'])
-subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ldo_tb_openloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_openloop_ac.raw ac'])
+#subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ldo_tb_closeloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_closeloop_tran.raw tran'])
+#subprocess.run(["xschem", "--rcfile", xschemrc, sch_dir+'/ldo_tb_openloop.sch', "--command", 'xschem raw_read simulations/ldo_tb_openloop_ac.raw ac'])

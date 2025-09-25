@@ -2,10 +2,14 @@ import sys
 import os
 import subprocess
 import matplotlib.pyplot as plt
+import pathlib
 
 home_dir = os.environ["HOME_DIR"]
 pdk_root = os.environ["PDK_ROOT"]
 pdk = os.environ["PDK"]
+
+pathlib.Path(home_dir+'/results/fig').mkdir(parents=True, exist_ok=True) 
+
 xschemrc = os.path.join(pdk_root, pdk, "libs.tech/xschem/xschemrc")
 sch_dir = os.path.join(home_dir, "xschem/ota")
 simulations_path = os.path.join(sch_dir, "simulations")
@@ -41,13 +45,4 @@ sim_plot(
 plt.savefig(home_dir + "/results/fig/ota_tb_openloop_ac.png")
 plt.close()
 
-subprocess.run(
-    [
-        "xschem",
-        "--rcfile",
-        xschemrc,
-        sch_dir + "/ota_tb_openloop.sch",
-        "--command",
-        "xschem raw_read simulations/ota_tb_openloop_ac.raw ac",
-    ]
-)
+#subprocess.run(["xschem","--rcfile",xschemrc,sch_dir + "/ota_tb_openloop.sch","--command","xschem raw_read simulations/ota_tb_openloop_ac.raw ac",])
